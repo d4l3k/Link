@@ -67,7 +67,7 @@ public class Core extends JavaPlugin{
 				if(args[0].equalsIgnoreCase("edit"))
 				{
 					if (!Core.permissionHandler.has((Player)sender, "link.edit")) {
-						sender.sendMessage("[LINK] "+ChatColor.RED+"Invalid Permissions");
+						sender.sendMessage("[LINK] "+ChatColor.RED+"Insufficient Permissions to enable Edit!");
 						return false;
 					}
 					Data.playerEditMode.put((Player)sender, true);
@@ -80,16 +80,13 @@ public class Core extends JavaPlugin{
 					return false;
 				}
 			}
-			else
+			if(Data.playerEditMode.containsKey((Player)sender))
 			{
-				if(Data.playerEditMode.containsKey((Player)sender))
+				if(Data.playerEditMode.get((Player)sender))
 				{
-					if(Data.playerEditMode.get((Player)sender))
-					{
-						Data.playerEditMode.put((Player)sender, false);
-						sender.sendMessage("[LINK] "+ChatColor.RED+"Edit Disabled");
-						return true;
-					}
+					Data.playerEditMode.put((Player)sender, false);
+					sender.sendMessage("[LINK] "+ChatColor.RED+"Edit Disabled");
+					return true;
 				}
 			}
 		}

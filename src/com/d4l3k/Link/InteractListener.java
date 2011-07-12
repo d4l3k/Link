@@ -45,6 +45,12 @@ public class InteractListener extends PlayerListener {
 						Data.playerEditStatus.put(plr,0);
 						return;
 					}
+					if(!Core.permissionHandler.has(event.getPlayer(), "link."+gate.gatePerm))
+					{
+						plr.sendMessage("[LINK] "+ChatColor.RED+"Insufficient Permissions to edit Gate!");
+						Data.playerEditStatus.put(plr,0);
+						return;
+					}
 					Data.playerEditSelection.put(plr,0);
 					Data.playerEditFirstGate.put(plr, gate.gateBlock);
 					ChatColor clr = ChatColor.RED;

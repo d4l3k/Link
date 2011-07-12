@@ -22,7 +22,7 @@ public class WorldListener extends BlockListener{
 			return;
 		
 		if (!Core.permissionHandler.has(event.getPlayer(), "link.build")&&!Core.permissionHandler.has(event.getPlayer(), "link."+obj.gatePerm)) {
-			event.getPlayer().sendMessage("[LINK] "+ChatColor.RED+"Invalid Permissions");
+			event.getPlayer().sendMessage("[LINK] "+ChatColor.RED+"Insufficient Permissions to create Gate!");
 			event.getBlock().setType(Material.AIR);
 			ItemStack iT = new ItemStack(Material.SIGN, 1);
 	        event.getPlayer().getInventory().addItem(new ItemStack[] { iT });

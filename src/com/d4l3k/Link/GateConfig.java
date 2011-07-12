@@ -58,6 +58,8 @@ public class GateConfig {
 			((LocationMake)gate).Execute();
 		else if(ID.equalsIgnoreCase("[LocSplit]"))
 			((LocationSplit)gate).Execute();
+		else if(ID.equalsIgnoreCase("[Command]"))
+			((Command)gate).Execute();
 	}
 	public static BaseGate newBaseGate(String type, SignChangeEvent event)
 	{
@@ -108,6 +110,8 @@ public class GateConfig {
 			obj = (BaseGate) new LocationMake(event);
 		else if(type.equalsIgnoreCase("[LocSplit]"))
 			obj = (BaseGate) new LocationSplit(event);
+		else if(type.equalsIgnoreCase("[Command]"))
+			obj = (BaseGate) new Command(event);
 		
 		return obj;
 	}
@@ -160,6 +164,8 @@ public class GateConfig {
 			obj = (BaseGate) new LocationMake();
 		else if(type.equalsIgnoreCase("[LocSplit]"))
 			obj = (BaseGate) new LocationSplit();
+		else if(type.equalsIgnoreCase("[Command]"))
+			obj = (BaseGate) new Command();
 		return obj;
 	}
 }

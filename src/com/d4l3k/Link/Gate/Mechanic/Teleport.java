@@ -16,6 +16,7 @@ public class Teleport extends BaseGate{
 	{
 		this.gateName = "Player Teleport";
 		this.gateID = "[Teleport]";
+		this.gatePerm = "danger";
 		this.gateBlock = event.getBlock();
 		//this.gateOutputNames = new String[1];
 		//this.gateOutputNames[0] = "Player";
