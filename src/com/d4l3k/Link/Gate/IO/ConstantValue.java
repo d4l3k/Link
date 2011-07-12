@@ -17,7 +17,7 @@ public class ConstantValue extends BaseGate{
 		this.gateOutputTypes[0] = "string";
 		this.gateOutputs = new Object[1];
 		
-		this.gateStrData = event.getLine(1);
+		this.gateStrData = event.getLine(1)+event.getLine(2)+event.getLine(3);
 		
 		try
 		{

@@ -19,7 +19,7 @@ public class Toggle extends BaseGate{
 		this.gateOutputTypes[0] = "double";
 		this.gateOutputs = new Object[1];
 		
-		this.gateStrData = event.getLine(1);
+		this.gateStrData = event.getLine(1)+event.getLine(2)+event.getLine(3);
 		this.gateDouData = 0.0;
 		this.gateOutputs[0] = 0.0;
 		updateOutput();
