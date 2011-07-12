@@ -37,7 +37,7 @@ public class IfString extends BaseGate{
 	public void Execute()
 	{
 		String output = "";
-		if((Double)Data.getInput(gateInputs[0], gateInputIndexs[0])>=1.0)
+		if(((Double)Data.getInput(gateInputs[0], gateInputIndexs[0], 0.0))>=1.0)
 		{
 			output = (String)Data.getInput(gateInputs[1], gateInputIndexs[1], "");
 		}

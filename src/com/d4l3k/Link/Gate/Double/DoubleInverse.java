@@ -8,35 +8,33 @@ import com.d4l3k.Link.BaseGate;
 import com.d4l3k.Link.Data;
 
 
-public class DoubleEqual extends BaseGate{
-	public DoubleEqual(SignChangeEvent event)
+public class DoubleInverse extends BaseGate{
+	public DoubleInverse(SignChangeEvent event)
 	{
-		this.gateName = "Double Equal";
-		this.gateID = "[Equal]";
+		this.gateName = "Double Inverse";
+		this.gateID = "[Inverse]";
 		this.gateBlock = event.getBlock();
 		this.gateOutputNames = new String[1];
-		this.gateOutputNames[0] = "Equal";
+		this.gateOutputNames[0] = "Inverse";
 		this.gateOutputTypes = new String[1];
 		this.gateOutputTypes[0] = "double";
 		this.gateOutputs = new Object[1];
 		
-		this.gateInputNames = new String[2];
+		this.gateInputNames = new String[1];
 		this.gateInputNames[0] = "Double1";
-		this.gateInputNames[1] = "Double2";
-		this.gateInputTypes = new String[2];
+		this.gateInputTypes = new String[1];
 		this.gateInputTypes[0] = "double";
-		this.gateInputTypes[1] = "double";
-		this.gateInputs = new Block[2];
-		this.gateInputIndexs = new int[2];
+		this.gateInputs = new Block[1];
+		this.gateInputIndexs = new int[1];
 		Execute();
 	}
-	public DoubleEqual() {
+	public DoubleInverse() {
 		// TODO Auto-generated constructor stub
 	}
 	public void Execute()
 	{
 		double data = 0.0;
-		if(Data.getInput(gateInputs[0], gateInputIndexs[0],0.0).equals(Data.getInput(gateInputs[1], gateInputIndexs[1],0.0)))
+		if((Double)Data.getInput(gateInputs[0], gateInputIndexs[0],0)<1.0)
 		{
 			data = 1.0;
 		}
