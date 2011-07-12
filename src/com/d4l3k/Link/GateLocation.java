@@ -31,15 +31,7 @@ public class GateLocation implements Serializable{
 	{
 		World wald = Core.server.getWorld(world);
 		Location pos = new Location(wald,locX,locY,locZ);
-		try
-		{
-			return pos;
-		}
-		catch(Exception ex)
-		{
-			
-		}
-		return null;
+		return pos;
 	}
 	
 }

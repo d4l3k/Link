@@ -30,14 +30,14 @@ public class StringAdd extends BaseGate{
 		this.gateInputNames[6] = "String7";
 		this.gateInputNames[7] = "String8";
 		this.gateInputTypes = new String[8];
-		this.gateInputTypes[0] = "double";
-		this.gateInputTypes[1] = "double";
-		this.gateInputTypes[2] = "double";
-		this.gateInputTypes[3] = "double";
-		this.gateInputTypes[4] = "double";
-		this.gateInputTypes[5] = "double";
-		this.gateInputTypes[6] = "double";
-		this.gateInputTypes[7] = "double";
+		this.gateInputTypes[0] = "string";
+		this.gateInputTypes[1] = "string";
+		this.gateInputTypes[2] = "string";
+		this.gateInputTypes[3] = "string";
+		this.gateInputTypes[4] = "string";
+		this.gateInputTypes[5] = "string";
+		this.gateInputTypes[6] = "string";
+		this.gateInputTypes[7] = "string";
 
 		this.gateInputs = new Block[8];
 		this.gateInputIndexs = new int[8];
@@ -48,10 +48,10 @@ public class StringAdd extends BaseGate{
 	}
 	public void Execute()
 	{
-		String data = (String)Data.getInput(gateInputs[0], gateInputIndexs[0]);
+		String data = (String)Data.getInput(gateInputs[0], gateInputIndexs[0],"");
 		for(int i=1;i<8;i++)
 		{
-			data+=(String)Data.getInput(gateInputs[i], gateInputIndexs[i]);
+			data+=(String)Data.getInput(gateInputs[i], gateInputIndexs[i],"");
 		}
 		
 		this.gateOutputs[0]=data;
