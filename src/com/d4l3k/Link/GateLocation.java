@@ -12,7 +12,7 @@ public class GateLocation implements Serializable{
 	private double locX = 0.0;
 	private double locY = 0.0;
 	private double locZ = 0.0;
-	private String world = "";
+	private int world = 0;
 	
 	public GateLocation(Location loc)
 	{
@@ -21,17 +21,17 @@ public class GateLocation implements Serializable{
 			locX = loc.getX();
 			locY = loc.getY();
 			locZ = loc.getZ();
-			world = loc.getWorld().getName();
+			List<World> worlds = Core.server.getWorlds();
+			world = worlds.indexOf(loc.getWorld());
+					
 		}
 		catch(Exception ex)
 		{
-			List<World> worlds = Core.server.getWorlds();
-			world = worlds.get(0).getName();
 		}
 	}
 	public Location getLocation()
 	{
-		World wald = Core.server.getWorld(world);
+		World wald = Core.server.getWorlds().get(world);
 		Location pos = new Location(wald,locX,locY,locZ);
 		return pos;
 	}

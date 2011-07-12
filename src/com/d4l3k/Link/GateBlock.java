@@ -24,16 +24,16 @@ public class GateBlock implements Serializable{
 	}
 	public Block getBlock()
 	{
-		Location pos = loc.getLocation();
+		
 		try
 		{
+			Location pos = loc.getLocation();
 			return pos.getBlock();
 		}
 		catch(Exception ex)
 		{
-			
+			return null;
 		}
-		return null;
 	}
 	
 }
