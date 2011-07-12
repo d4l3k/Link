@@ -21,7 +21,7 @@ public class DoubleInverse extends BaseGate{
 		this.gateOutputs = new Object[1];
 		
 		this.gateInputNames = new String[1];
-		this.gateInputNames[0] = "Double1";
+		this.gateInputNames[0] = "Output";
 		this.gateInputTypes = new String[1];
 		this.gateInputTypes[0] = "double";
 		this.gateInputs = new Block[1];
@@ -34,7 +34,7 @@ public class DoubleInverse extends BaseGate{
 	public void Execute()
 	{
 		double data = 0.0;
-		if((Double)Data.getInput(gateInputs[0], gateInputIndexs[0],0)<1.0)
+		if((Double)Data.getInput(gateInputs[0], gateInputIndexs[0],0.0)<1.0)
 		{
 			data = 1.0;
 		}

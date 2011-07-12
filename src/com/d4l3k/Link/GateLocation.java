@@ -1,6 +1,7 @@
 package com.d4l3k.Link;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -24,7 +25,8 @@ public class GateLocation implements Serializable{
 		}
 		catch(Exception ex)
 		{
-			
+			List<World> worlds = Core.server.getWorlds();
+			world = worlds.get(0).getName();
 		}
 	}
 	public Location getLocation()
