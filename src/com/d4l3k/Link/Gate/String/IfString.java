@@ -24,7 +24,7 @@ public class IfString extends BaseGate{
 		this.gateInputNames[0] = "If";
 		this.gateInputNames[1] = "String";
 		this.gateInputTypes = new String[2];
-		this.gateInputTypes[0] = "string";
+		this.gateInputTypes[0] = "double";
 		this.gateInputTypes[1] = "string";
 
 		this.gateInputs = new Block[2];
