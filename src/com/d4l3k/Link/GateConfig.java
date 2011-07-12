@@ -9,7 +9,8 @@ import com.d4l3k.Link.Gate.String.*;
 import com.d4l3k.Link.Gate.Location.*;
 
 public class GateConfig {
-	public static void executeBaseGate(BaseGate gate)
+	//Handles executing gates.
+	public static void executeBaseGate(BaseGate gate) 
 	{
 		String ID = gate.gateID;
 		if(ID.equalsIgnoreCase("[Constant]"))
@@ -61,6 +62,7 @@ public class GateConfig {
 		else if(ID.equalsIgnoreCase("[Command]"))
 			((Command)gate).Execute();
 	}
+	// Handles creating new gates
 	public static BaseGate newBaseGate(String type, SignChangeEvent event)
 	{
 		BaseGate obj = null;
@@ -115,6 +117,7 @@ public class GateConfig {
 		
 		return obj;
 	}
+	// Handles creating new gates without initializing them
 	public static BaseGate newBaseGate(String type)
 	{
 		BaseGate obj = null;
