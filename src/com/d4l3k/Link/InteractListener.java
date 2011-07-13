@@ -169,6 +169,10 @@ public class InteractListener extends PlayerListener {
 				{
 					((Toggle)gate).Execute();
 				}
+				else if(gate.gateID.equalsIgnoreCase("[StringToggle]"))
+				{
+					((Toggle)gate).Execute();
+				}
 			}
 		}
 	}

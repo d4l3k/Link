@@ -23,7 +23,7 @@ public class StringToggle extends BaseGate{
 		this.gateDouData = 0.0;
 		this.gateOutputs[0] = "";
 		updateOutput();
-		event.setLine(1, Double.toString((Double)this.gateOutputs[0]));
+		event.setLine(1, (String)this.gateOutputs[0]);
 	}
 	public StringToggle() {
 		// TODO Auto-generated constructor stub

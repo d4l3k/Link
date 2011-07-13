@@ -14,6 +14,12 @@ public class GateLocation implements Serializable{
 	private double locZ = 0.0;
 	private int world = 0;
 	
+	public GateLocation(World warld)
+	{
+		List<World> worlds = Core.server.getWorlds();
+		world = worlds.indexOf(warld);
+	}
+	
 	public GateLocation(Location loc)
 	{
 		try

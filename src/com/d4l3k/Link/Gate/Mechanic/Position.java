@@ -35,6 +35,9 @@ public class Position extends BaseGate{
 	public void Execute()
 	{
 		Location pos = gateBlock.getLocation();
+		pos.setX(pos.getX()+0.5);
+		pos.setY(pos.getY()+0.5);
+		pos.setZ(pos.getZ()+0.5);
 		
 		this.gateOutputs[0]=new GateLocation(pos);
 		Data.updateInput(gateBlock, 0);

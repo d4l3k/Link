@@ -50,9 +50,7 @@ public class MobSpawn extends BaseGate{
 		String mob = (String)Data.getInput(gateInputs[0], gateInputIndexs[0]);
 		if((Double)Data.getInput(gateInputs[2], gateInputIndexs[2], 0.0)>=1.0)
 		{
-			
-			Player plr = Core.server.getPlayer((String)Data.getInput(gateInputs[0], gateInputIndexs[0], ""));
-			Location loc = ((GateLocation)Data.getInput(gateInputs[1], gateInputIndexs[1], new GateLocation(plr.getLocation()))).getLocation();
+			Location loc = ((GateLocation)Data.getInput(gateInputs[1], gateInputIndexs[1], new GateLocation(gateBlock.getWorld()))).getLocation();
 			for(int i=0;i<creatures.length;i++)
 			{
 				if(creatures[i].name().equalsIgnoreCase(mob))
