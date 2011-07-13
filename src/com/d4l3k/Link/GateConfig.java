@@ -65,6 +65,8 @@ public class GateConfig {
 			((IfString)gate).Execute();
 		else if(ID.equalsIgnoreCase("[Inverse]"))
 			((DoubleInverse)gate).Execute();
+		else if(ID.equalsIgnoreCase("[StringToggle]"))
+			((DoubleInverse)gate).Execute();
 	}
 	// Handles creating new gates
 	public static BaseGate newBaseGate(String type, SignChangeEvent event)
@@ -122,6 +124,8 @@ public class GateConfig {
 			obj = (BaseGate) new IfString(event);
 		else if(type.equalsIgnoreCase("[Inverse]"))
 			obj = (BaseGate) new DoubleInverse(event);
+		else if(type.equalsIgnoreCase("[StringToggle]"))
+			obj = (BaseGate) new StringToggle(event);
 		
 		return obj;
 	}
@@ -181,6 +185,8 @@ public class GateConfig {
 			obj = (BaseGate) new IfString();
 		else if(type.equalsIgnoreCase("[Inverse]"))
 			obj = (BaseGate) new DoubleInverse();
+		else if(type.equalsIgnoreCase("[StringToggle]"))
+			obj = (BaseGate) new StringToggle();
 		
 		return obj;
 	}
