@@ -1,12 +1,10 @@
 package com.d4l3k.Link.Gate.Location;
 
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
-import com.d4l3k.Link.Core;
 import com.d4l3k.Link.Data;
 import com.d4l3k.Link.GateLocation;
 

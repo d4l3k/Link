@@ -69,6 +69,8 @@ public class GateConfig {
 			((DoubleInverse)gate).Execute();
 		else if(ID.equalsIgnoreCase("[LocAdd]"))
 			((LocationAdd)gate).Execute();
+		else if(ID.equalsIgnoreCase("[MobSpawn]"))
+			((MobSpawn)gate).Execute();
 	}
 	// Handles creating new gates
 	public static BaseGate newBaseGate(String type, SignChangeEvent event)
@@ -130,6 +132,8 @@ public class GateConfig {
 			obj = (BaseGate) new StringToggle(event);
 		else if(type.equalsIgnoreCase("[LocAdd]"))
 			obj = (BaseGate) new LocationAdd(event);
+		else if(type.equalsIgnoreCase("[MobSpawn]"))
+			obj = (BaseGate) new MobSpawn(event);
 		
 		return obj;
 	}
@@ -193,6 +197,8 @@ public class GateConfig {
 			obj = (BaseGate) new StringToggle();
 		else if(type.equalsIgnoreCase("[LocAdd]"))
 			obj = (BaseGate) new LocationAdd();
+		else if(type.equalsIgnoreCase("[MobSpawn]"))
+			obj = (BaseGate) new MobSpawn();
 		
 		return obj;
 	}
