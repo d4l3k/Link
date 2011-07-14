@@ -44,7 +44,7 @@ public class Clock extends BaseGate{
 		{
 			gateOutputs[0] = (Double)Data.getInput(gateInputs[1], gateInputIndexs[1], 1.0);
 			
-			gateDouData = 0.0;
+			gateDouData -= tickRate;
 		}
 	}
 }

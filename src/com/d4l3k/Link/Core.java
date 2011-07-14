@@ -60,38 +60,57 @@ public class Core extends JavaPlugin implements Runnable{
 	private final WorldListener breakListener = new WorldListener(this);
 	private final WorldListener redstoneListener = new WorldListener(this);
 	private final InteractListener interactListener = new InteractListener(this);
+	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
-		if(cmd.getName().equalsIgnoreCase("link"))
+		if(args.length>0)
 		{
-			if(args.length>0)
+			if(args[0].equalsIgnoreCase("edit")||args[0].equalsIgnoreCase("e"))
 			{
-				if(args[0].equalsIgnoreCase("edit"))
-				{
-					if (!Core.permissionHandler.has((Player)sender, "link.edit")) {
-						sender.sendMessage("[LINK] "+ChatColor.RED+"Insufficient Permissions to enable Edit!");
-						return false;
-					}
-					Data.playerEditMode.put((Player)sender, true);
-					Data.playerEditStatus.put((Player)sender, 0);
-					sender.sendMessage("[LINK] "+ChatColor.GREEN+"Edit Enabled");
-					return true;
+				if (!Core.permissionHandler.has((Player)sender, "link.edit")) {
+					sender.sendMessage("[LINK] "+ChatColor.RED+"Insufficient Permissions to enable Edit!");
 				}
-				else
-				{
-					return false;
-				}
+				Data.playerEditMode.put((Player)sender, true);
+				Data.playerEditStatus.put((Player)sender, 0);
+				sender.sendMessage("[LINK] "+ChatColor.GREEN+"Edit Enabled");
+				return true;
 			}
-			if(Data.playerEditMode.containsKey((Player)sender))
+			else if(args[0].equalsIgnoreCase("info")||args[0].equalsIgnoreCase("about")||args[0].equalsIgnoreCase("version")||args[0].equalsIgnoreCase("v"))
 			{
-				if(Data.playerEditMode.get((Player)sender))
-				{
-					Data.playerEditMode.put((Player)sender, false);
-					sender.sendMessage("[LINK] "+ChatColor.RED+"Edit Disabled");
-					return true;
-				}
+				sender.sendMessage("[LINK] "+ChatColor.GREEN+"INFORMATION");
+				sender.sendMessage(ChatColor.GOLD+"By: "+ChatColor.AQUA+"D4l3k");
+				sender.sendMessage(ChatColor.GOLD+"Version: "+ChatColor.WHITE+this.getDescription().getVersion());
+				sender.sendMessage(ChatColor.GOLD+"TickRate: "+ChatColor.WHITE+Integer.toString(Data.serverTickRate));
+				return true;
+			}
+			else if(args[0].equalsIgnoreCase("h")||args[0].equalsIgnoreCase("help"))
+			{
+				sender.sendMessage("[LINK] "+ChatColor.GREEN+"HELP");
+				sender.sendMessage(ChatColor.GOLD+"/link "+ChatColor.AQUA+"e(dit)");
+				sender.sendMessage(ChatColor.WHITE+" - Enabled Link Edit Mode");
+				sender.sendMessage(ChatColor.GOLD+"/link "+ChatColor.AQUA+"v(ersion) | about | info");
+				sender.sendMessage(ChatColor.WHITE+" - Displays Link Version + Info");
+				sender.sendMessage(ChatColor.GOLD+"/link "+ChatColor.AQUA+"h(elp)");
+				sender.sendMessage(ChatColor.WHITE+" - Displays Link Help - AKA this");
+				return true;
 			}
 		}
-		return false;
+		if(Data.playerEditMode.containsKey((Player)sender))
+		{
+			if(Data.playerEditMode.get((Player)sender))
+			{
+				Data.playerEditMode.put((Player)sender, false);
+				sender.sendMessage("[LINK] "+ChatColor.RED+"Edit Disabled");
+			}
+		}
+		
+		sender.sendMessage("[LINK] "+ChatColor.GREEN+"HELP");
+		sender.sendMessage(ChatColor.GOLD+"/link "+ChatColor.AQUA+"e(dit)");
+		sender.sendMessage(ChatColor.WHITE+" - Enabled Link Edit Mode");
+		sender.sendMessage(ChatColor.GOLD+"/link "+ChatColor.AQUA+"v(ersion) | about | info");
+		sender.sendMessage(ChatColor.WHITE+" - Displays Link Version + Info");
+		sender.sendMessage(ChatColor.GOLD+"/link "+ChatColor.AQUA+"h(elp)");
+		sender.sendMessage(ChatColor.WHITE+" - Displays Link Help - AKA this");
+		return true;
 	}
 	public void run() {
 		Data.runSelfTriggered();
