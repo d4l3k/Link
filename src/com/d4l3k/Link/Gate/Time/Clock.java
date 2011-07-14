@@ -45,10 +45,12 @@ public class Clock extends BaseGate{
 		}
 		else
 		{
-			Double tickRate = (Double)Data.getInput(gateInputs[0], gateInputIndexs[0], 100.0);
+			Double tickRate = (Double)Data.getInput(gateInputs[0], gateInputIndexs[0], 10.0);
 			gateDouData+=Data.serverTickRate;
-			if(gateDouData<=tickRate)
+			if(gateDouData>=tickRate)
 			{
+				gateOutputs[0] = 0.0;
+				Data.updateInput(gateBlock, 0);
 				gateOutputs[0] = (Double)Data.getInput(gateInputs[1], gateInputIndexs[1], 1.0);
 				Data.updateInput(gateBlock, 0);
 				gateDouData -= tickRate;

@@ -78,6 +78,8 @@ public class GateConfig {
 			((Clock)gate).Execute();
 		else if(ID.equalsIgnoreCase("[Counter]"))
 			((Counter)gate).Execute();
+		else if(ID.equalsIgnoreCase("[Latch]"))
+			((Latch)gate).Execute();
 	}
 	// Gates that execute on click.
 	public static void interactBaseGate(BaseGate gate)
@@ -158,6 +160,8 @@ public class GateConfig {
 			obj = new Clock(event);
 		else if(type.equalsIgnoreCase("[Counter]"))
 			obj = new Counter(event);
+		else if(type.equalsIgnoreCase("[Latch]"))
+			obj = new Latch(event);
 		
 		return obj;
 	}
@@ -229,6 +233,8 @@ public class GateConfig {
 			obj =  new Clock();
 		else if(type.equalsIgnoreCase("[Counter]"))
 			obj =  new Counter();
+		else if(type.equalsIgnoreCase("[Latch]"))
+			obj =  new Latch();
 		
 		return obj;
 	}

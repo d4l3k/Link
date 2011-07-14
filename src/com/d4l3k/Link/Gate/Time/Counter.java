@@ -50,7 +50,7 @@ public class Counter extends BaseGate{
 		CraftSign sig = new CraftSign(this.gateBlock);
 		sig.setLine(1, Double.toString(gateDouData));
 		sig.update();
-		if(gateOutputs[0].equals(gateDouData))
+		if(!gateOutputs[0].equals(gateDouData))
 		{
 			gateOutputs[0] = gateDouData;
 			Data.updateInput(gateBlock, 0);

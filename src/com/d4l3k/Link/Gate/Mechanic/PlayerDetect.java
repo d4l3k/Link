@@ -50,7 +50,7 @@ public class PlayerDetect extends BaseGate{
 				double xDist = ourLoc.getX()-loc.getX();
 				double yDist = ourLoc.getY()-loc.getY();
 				double zDist = ourLoc.getZ()-loc.getZ();
-				if(xDist<=Dist||-xDist<=Dist||yDist<=Dist||-yDist<=Dist||zDist<=Dist||-zDist<=Dist)
+				if(xDist<=Dist&&-xDist<=Dist&&yDist<=Dist&&-yDist<=Dist&&zDist<=Dist&&-zDist<=Dist)
 				{
 					player = players[i].getName();
 					i = players.length;

@@ -19,6 +19,7 @@ public class DoubleGreaterEqual extends BaseGate{
 		this.gateOutputTypes = new String[1];
 		this.gateOutputTypes[0] = "double";
 		this.gateOutputs = new Object[1];
+		this.gateOutputs[0]=0.0;
 		
 		this.gateInputNames = new String[2];
 		this.gateInputNames[0] = "Double1";
@@ -40,9 +41,10 @@ public class DoubleGreaterEqual extends BaseGate{
 		{
 			data = 1.0;
 		}
-		
-		this.gateOutputs[0]=data;
-		Data.updateInput(gateBlock, 0);
+		if(!gateOutputs[0].equals(data))
+		{
+			Data.updateInput(gateBlock, 0);
+		}
 		CraftSign sig = new CraftSign(this.gateBlock);
 		sig.setLine(1, "GreaterEqual: "+Double.toString(data));
 		sig.update();

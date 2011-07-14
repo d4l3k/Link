@@ -1,7 +1,10 @@
 package com.d4l3k.Link;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockListener;
 import org.bukkit.event.block.BlockRedstoneEvent;
@@ -52,9 +55,52 @@ public class WorldListener extends BlockListener{
 			BaseGate gate = Data.getBaseGate(event.getBlock());
 			if(gate.gateID.equals(""))
 				return;
+			if(!Core.permissionHandler.has(event.getPlayer(), "link."+gate.gatePerm))
+			{
+				event.getPlayer().sendMessage("[LINK] "+ChatColor.RED+"Insufficient Permissions to destroy Gate!");
+				event.setCancelled(true);
+				return;
+			}
 			Data.removeGate(gate);
 			Data.saveGates();
 			event.getPlayer().sendMessage("[LINK] "+ChatColor.RED+"Gate Destroyed! "+gate.gateName);
 		}
+		else
+		{
+			Block[] destroyedBlocks = new Block[5];
+			Block block = event.getBlock();
+			World world = block.getWorld();
+			destroyedBlocks[0] = (new Location(world, block.getX() + 1, block.getY(), block.getZ())).getBlock();
+			destroyedBlocks[1] = (new Location(world, block.getX() - 1, block.getY(), block.getZ())).getBlock();
+			destroyedBlocks[2] = (new Location(world, block.getX(), block.getY(), block.getZ() + 1)).getBlock();
+			destroyedBlocks[3] = (new Location(world, block.getX(), block.getY(), block.getZ() - 1)).getBlock();
+			destroyedBlocks[4] = (new Location(world, block.getX(), block.getY() + 1, block.getZ())).getBlock();
+			for(int i=0;i<destroyedBlocks.length;i++)
+			{
+				Material type1 = destroyedBlocks[i].getType();
+				if(type1.equals(Material.WALL_SIGN)||i==4&&type1.equals(Material.SIGN_POST))
+				{
+					BaseGate gate = Data.getBaseGate(destroyedBlocks[i]);
+					if(!gate.gateID.equals(""))
+					{
+						if(!Core.permissionHandler.has(event.getPlayer(), "link."+gate.gatePerm))
+						{
+							event.getPlayer().sendMessage("[LINK] "+ChatColor.RED+"Insufficient Permissions to destroy Gate! "+gate.gateName);
+							event.setCancelled(true);
+						}
+						else
+						{
+							Data.removeGate(gate);
+							Data.saveGates();
+							event.getPlayer().sendMessage("[LINK] "+ChatColor.RED+"Gate Destroyed! "+gate.gateName);
+						}
+					}
+				}
+			}
+		}
+	}
+	public void destroyGate(BaseGate gate)
+	{
+		
 	}
 }
