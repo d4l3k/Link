@@ -152,7 +152,7 @@ public class GateConfig {
 		else if(type.equalsIgnoreCase("[Button]"))
 			obj =  new Button(event);
 		else if(type.equalsIgnoreCase("[Clock]"))
-			obj = new Button(event);
+			obj = new Clock(event);
 		
 		return obj;
 	}

@@ -10,8 +10,8 @@ import com.d4l3k.Link.Data;
 public class Clock extends BaseGate{
 	public Clock(SignChangeEvent event)
 	{
-		this.gateName = "Constant Value";
-		this.gateID = "[Constant]";
+		this.gateName = "Triggered Clock";
+		this.gateID = "[Clock]";
 		this.gateBlock = event.getBlock();
 		this.gateOutputNames = new String[1];
 		this.gateOutputNames[0] = "Tick";
