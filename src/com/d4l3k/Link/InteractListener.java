@@ -9,6 +9,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerListener;
 
+import com.d4l3k.Link.Gate.IO.Button;
+import com.d4l3k.Link.Gate.IO.StringToggle;
 import com.d4l3k.Link.Gate.IO.Toggle;
 
 
@@ -165,14 +167,7 @@ public class InteractListener extends PlayerListener {
 			if(mat.equals(Material.SIGN_POST)||mat.equals(Material.WALL_SIGN))
 			{
 				BaseGate gate = Data.getBaseGate(block);
-				if(gate.gateID.equalsIgnoreCase("[Toggle]"))
-				{
-					((Toggle)gate).Execute();
-				}
-				else if(gate.gateID.equalsIgnoreCase("[StringToggle]"))
-				{
-					((Toggle)gate).Execute();
-				}
+				GateConfig.interactBaseGate(gate);
 			}
 		}
 	}

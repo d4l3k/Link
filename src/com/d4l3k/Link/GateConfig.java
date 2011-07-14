@@ -71,6 +71,19 @@ public class GateConfig {
 			((LocationAdd)gate).Execute();
 		else if(ID.equalsIgnoreCase("[MobSpawn]"))
 			((MobSpawn)gate).Execute();
+		else if(ID.equalsIgnoreCase("[Button]"))
+			((Button)gate).Execute();
+	}
+	// Gates that execute on click.
+	public static void interactBaseGate(BaseGate gate)
+	{
+		String ID = gate.gateID;
+		if(ID.equalsIgnoreCase("[Toggle]"))
+			((Toggle)gate).Execute();
+		else if(ID.equalsIgnoreCase("[StringToggle]"))
+			((StringToggle)gate).Execute();
+		else if(ID.equalsIgnoreCase("[Button]"))
+			((Button)gate).Execute();
 	}
 	// Handles creating new gates
 	public static BaseGate newBaseGate(String type, SignChangeEvent event)
@@ -134,6 +147,8 @@ public class GateConfig {
 			obj = (BaseGate) new LocationAdd(event);
 		else if(type.equalsIgnoreCase("[MobSpawn]"))
 			obj = (BaseGate) new MobSpawn(event);
+		else if(type.equalsIgnoreCase("[Button]"))
+			obj = (BaseGate) new Button(event);
 		
 		return obj;
 	}
@@ -199,6 +214,8 @@ public class GateConfig {
 			obj = (BaseGate) new LocationAdd();
 		else if(type.equalsIgnoreCase("[MobSpawn]"))
 			obj = (BaseGate) new MobSpawn();
+		else if(type.equalsIgnoreCase("[Button]"))
+			obj = (BaseGate) new Button();
 		
 		return obj;
 	}
