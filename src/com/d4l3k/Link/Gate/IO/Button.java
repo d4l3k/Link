@@ -27,13 +27,15 @@ public class Button extends BaseGate{
 		try
 		{
 			tog = Double.parseDouble(parse[0]);
-		}
-		catch(Exception ex)
-		{
-		}
+		} catch(Exception ex) {} // Catches can be empty cause we set the alt value above w/ tog.
 		this.gateOutputs[0]=tog;
 		Data.updateInput(gateBlock, 0);
-		event.setLine(1, Double.toString(Double.parseDouble(parse[parse.length-1])));
+		double output = 0.0;
+		try
+		{
+			output = Double.parseDouble(parse[parse.length-1]);
+		} catch(Exception ex) {}
+		event.setLine(1, Double.toString(output));
 	}
 	public Button() {
 		// TODO Auto-generated constructor stub

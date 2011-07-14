@@ -7,6 +7,7 @@ import com.d4l3k.Link.Gate.Mechanic.*;
 import com.d4l3k.Link.Gate.Double.*;
 import com.d4l3k.Link.Gate.String.*;
 import com.d4l3k.Link.Gate.Location.*;
+import com.d4l3k.Link.Gate.Time.*;
 
 public class GateConfig {
 	//Handles executing gates.
@@ -75,6 +76,8 @@ public class GateConfig {
 			((Button)gate).Execute();
 		else if(ID.equalsIgnoreCase("[Clock]"))
 			((Clock)gate).Execute();
+		else if(ID.equalsIgnoreCase("[Counter]"))
+			((Counter)gate).Execute();
 	}
 	// Gates that execute on click.
 	public static void interactBaseGate(BaseGate gate)
@@ -153,6 +156,8 @@ public class GateConfig {
 			obj =  new Button(event);
 		else if(type.equalsIgnoreCase("[Clock]"))
 			obj = new Clock(event);
+		else if(type.equalsIgnoreCase("[Counter]"))
+			obj = new Counter(event);
 		
 		return obj;
 	}
@@ -222,6 +227,8 @@ public class GateConfig {
 			obj =  new Button();
 		else if(type.equalsIgnoreCase("[Clock]"))
 			obj =  new Clock();
+		else if(type.equalsIgnoreCase("[Counter]"))
+			obj =  new Counter();
 		
 		return obj;
 	}
