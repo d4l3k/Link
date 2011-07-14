@@ -73,6 +73,8 @@ public class GateConfig {
 			((MobSpawn)gate).Execute();
 		else if(ID.equalsIgnoreCase("[Button]"))
 			((Button)gate).Execute();
+		else if(ID.equalsIgnoreCase("[Clock]"))
+			((Clock)gate).Execute();
 	}
 	// Gates that execute on click.
 	public static void interactBaseGate(BaseGate gate)
@@ -90,65 +92,67 @@ public class GateConfig {
 	{
 		BaseGate obj = null;
 		if(type.equalsIgnoreCase("[Constant]"))
-			obj = (BaseGate) new ConstantValue(event);
+			obj =  new ConstantValue(event);
 		else if(type.equalsIgnoreCase("[Display]"))
-			obj = (BaseGate) new Display(event);
+			obj =  new Display(event);
 		else if(type.equalsIgnoreCase("[Toggle]"))
-			obj = (BaseGate) new Toggle(event);
+			obj =  new Toggle(event);
 		else if(type.equalsIgnoreCase("[RedstoneIn]"))
-			obj = (BaseGate) new RedstoneIn(event);
+			obj =  new RedstoneIn(event);
 		else if(type.equalsIgnoreCase("[RedstoneOut]"))
-			obj = (BaseGate) new RedstoneOut(event);
+			obj =  new RedstoneOut(event);
 		else if(type.equalsIgnoreCase("[StringEqual]"))
-			obj = (BaseGate) new StringEqual(event);
+			obj =  new StringEqual(event);
 		else if(type.equalsIgnoreCase("[StringAdd]"))
-			obj = (BaseGate) new StringAdd(event);
+			obj =  new StringAdd(event);
 		else if(type.equalsIgnoreCase("[Equal]"))
-			obj = (BaseGate) new DoubleEqual(event);
+			obj =  new DoubleEqual(event);
 		else if(type.equalsIgnoreCase("[Add]"))
-			obj = (BaseGate) new DoubleAdd(event);
+			obj =  new DoubleAdd(event);
 		else if(type.equalsIgnoreCase("[Divide]"))
-			obj = (BaseGate) new DoubleDivide(event);
+			obj =  new DoubleDivide(event);
 		else if(type.equalsIgnoreCase("[Greater]"))
-			obj = (BaseGate) new DoubleGreater(event);
+			obj =  new DoubleGreater(event);
 		else if(type.equalsIgnoreCase("[GreaterEqual]"))
-			obj = (BaseGate) new DoubleGreaterEqual(event);
+			obj =  new DoubleGreaterEqual(event);
 		else if(type.equalsIgnoreCase("[Less]"))
-			obj = (BaseGate) new DoubleLess(event);
+			obj =  new DoubleLess(event);
 		else if(type.equalsIgnoreCase("[LessEqual]"))
-			obj = (BaseGate) new DoubleLessEqual(event);
+			obj =  new DoubleLessEqual(event);
 		else if(type.equalsIgnoreCase("[Multiply]"))
-			obj = (BaseGate) new DoubleMultiply(event);
+			obj =  new DoubleMultiply(event);
 		else if(type.equalsIgnoreCase("[Subtract]"))
-			obj = (BaseGate) new DoubleSubtract(event);
+			obj =  new DoubleSubtract(event);
 		else if(type.equalsIgnoreCase("[ToString]"))
-			obj = (BaseGate) new DoubleToString(event);
+			obj =  new DoubleToString(event);
 		else if(type.equalsIgnoreCase("[Pos]"))
-			obj = (BaseGate) new Position(event);
+			obj =  new Position(event);
 		else if(type.equalsIgnoreCase("[PlayerPos]"))
-			obj = (BaseGate) new PlayerPosition(event);
+			obj =  new PlayerPosition(event);
 		else if(type.equalsIgnoreCase("[PlayerDetect]"))
-			obj = (BaseGate) new PlayerDetect(event);
+			obj =  new PlayerDetect(event);
 		else if(type.equalsIgnoreCase("[Teleport]"))
-			obj = (BaseGate) new Teleport(event);
+			obj =  new Teleport(event);
 		else if(type.equalsIgnoreCase("[LocMake]"))
-			obj = (BaseGate) new LocationMake(event);
+			obj =  new LocationMake(event);
 		else if(type.equalsIgnoreCase("[LocSplit]"))
-			obj = (BaseGate) new LocationSplit(event);
+			obj =  new LocationSplit(event);
 		else if(type.equalsIgnoreCase("[Command]"))
-			obj = (BaseGate) new Command(event);
+			obj =  new Command(event);
 		else if(type.equalsIgnoreCase("[IfString]"))
-			obj = (BaseGate) new IfString(event);
+			obj =  new IfString(event);
 		else if(type.equalsIgnoreCase("[Inverse]"))
-			obj = (BaseGate) new DoubleInverse(event);
+			obj =  new DoubleInverse(event);
 		else if(type.equalsIgnoreCase("[StringToggle]"))
-			obj = (BaseGate) new StringToggle(event);
+			obj =  new StringToggle(event);
 		else if(type.equalsIgnoreCase("[LocAdd]"))
-			obj = (BaseGate) new LocationAdd(event);
+			obj =  new LocationAdd(event);
 		else if(type.equalsIgnoreCase("[MobSpawn]"))
-			obj = (BaseGate) new MobSpawn(event);
+			obj =  new MobSpawn(event);
 		else if(type.equalsIgnoreCase("[Button]"))
-			obj = (BaseGate) new Button(event);
+			obj =  new Button(event);
+		else if(type.equalsIgnoreCase("[Clock]"))
+			obj = new Button(event);
 		
 		return obj;
 	}
@@ -157,65 +161,67 @@ public class GateConfig {
 	{
 		BaseGate obj = null;
 		if(type.equalsIgnoreCase("[Constant]"))
-			obj = (BaseGate) new ConstantValue();
+			obj =  new ConstantValue();
 		else if(type.equalsIgnoreCase("[Display]"))
-			obj = (BaseGate) new Display();
+			obj =  new Display();
 		else if(type.equalsIgnoreCase("[Toggle]"))
-			obj = (BaseGate) new Toggle();
+			obj =  new Toggle();
 		else if(type.equalsIgnoreCase("[RedstoneIn]"))
-			obj = (BaseGate) new RedstoneIn();
+			obj =  new RedstoneIn();
 		else if(type.equalsIgnoreCase("[RedstoneOut]"))
-			obj = (BaseGate) new RedstoneOut();
+			obj =  new RedstoneOut();
 		else if(type.equalsIgnoreCase("[StringEqual]"))
-			obj = (BaseGate) new StringEqual();
+			obj =  new StringEqual();
 		else if(type.equalsIgnoreCase("[StringAdd]"))
-			obj = (BaseGate) new StringAdd();
+			obj =  new StringAdd();
 		else if(type.equalsIgnoreCase("[Equal]"))
-			obj = (BaseGate) new DoubleEqual();
+			obj =  new DoubleEqual();
 		else if(type.equalsIgnoreCase("[Add]"))
-			obj = (BaseGate) new DoubleAdd();
+			obj =  new DoubleAdd();
 		else if(type.equalsIgnoreCase("[Divide]"))
-			obj = (BaseGate) new DoubleDivide();
+			obj =  new DoubleDivide();
 		else if(type.equalsIgnoreCase("[Greater]"))
-			obj = (BaseGate) new DoubleGreater();
+			obj =  new DoubleGreater();
 		else if(type.equalsIgnoreCase("[GreaterEqual]"))
-			obj = (BaseGate) new DoubleGreaterEqual();
+			obj =  new DoubleGreaterEqual();
 		else if(type.equalsIgnoreCase("[Less]"))
-			obj = (BaseGate) new DoubleLess();
+			obj =  new DoubleLess();
 		else if(type.equalsIgnoreCase("[LessEqual]"))
-			obj = (BaseGate) new DoubleLessEqual();
+			obj =  new DoubleLessEqual();
 		else if(type.equalsIgnoreCase("[Multiply]"))
-			obj = (BaseGate) new DoubleMultiply();
+			obj =  new DoubleMultiply();
 		else if(type.equalsIgnoreCase("[Subtract]"))
-			obj = (BaseGate) new DoubleSubtract();
+			obj =  new DoubleSubtract();
 		else if(type.equalsIgnoreCase("[ToString]"))
-			obj = (BaseGate) new DoubleToString();
+			obj =  new DoubleToString();
 		else if(type.equalsIgnoreCase("[Pos]"))
-			obj = (BaseGate) new Position();
+			obj =  new Position();
 		else if(type.equalsIgnoreCase("[PlayerPos]"))
-			obj = (BaseGate) new PlayerPosition();
+			obj =  new PlayerPosition();
 		else if(type.equalsIgnoreCase("[PlayerDetect]"))
-			obj = (BaseGate) new PlayerDetect();
+			obj =  new PlayerDetect();
 		else if(type.equalsIgnoreCase("[Teleport]"))
-			obj = (BaseGate) new Teleport();
+			obj =  new Teleport();
 		else if(type.equalsIgnoreCase("[LocMake]"))
-			obj = (BaseGate) new LocationMake();
+			obj =  new LocationMake();
 		else if(type.equalsIgnoreCase("[LocSplit]"))
-			obj = (BaseGate) new LocationSplit();
+			obj =  new LocationSplit();
 		else if(type.equalsIgnoreCase("[Command]"))
-			obj = (BaseGate) new Command();
+			obj =  new Command();
 		else if(type.equalsIgnoreCase("[IfString]"))
-			obj = (BaseGate) new IfString();
+			obj =  new IfString();
 		else if(type.equalsIgnoreCase("[Inverse]"))
-			obj = (BaseGate) new DoubleInverse();
+			obj =  new DoubleInverse();
 		else if(type.equalsIgnoreCase("[StringToggle]"))
-			obj = (BaseGate) new StringToggle();
+			obj =  new StringToggle();
 		else if(type.equalsIgnoreCase("[LocAdd]"))
-			obj = (BaseGate) new LocationAdd();
+			obj =  new LocationAdd();
 		else if(type.equalsIgnoreCase("[MobSpawn]"))
-			obj = (BaseGate) new MobSpawn();
+			obj =  new MobSpawn();
 		else if(type.equalsIgnoreCase("[Button]"))
-			obj = (BaseGate) new Button();
+			obj =  new Button();
+		else if(type.equalsIgnoreCase("[Clock]"))
+			obj =  new Clock();
 		
 		return obj;
 	}

@@ -15,6 +15,8 @@ import org.bukkit.entity.Player;
 
 public class Data {
 	
+	public static int serverTickRate = 10;
+	
 	public static Map<Player, Boolean> playerEditMode = new HashMap<Player, Boolean>();
 	public static Map<Player, Integer> playerEditStatus = new HashMap<Player, Integer>();
 	public static Map<Player, Integer> playerEditSelection = new HashMap<Player, Integer>();
@@ -155,7 +157,7 @@ public class Data {
 		for(int i=0;i<allGates.size();i++)
 		{
 			BaseGate gate = allGates.get(i);
-			if(gate.gateSelfTriggered==true)
+			if(gate.gateSelfTriggered)
 			{
 				GateConfig.executeBaseGate(gate);
 			}

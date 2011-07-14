@@ -49,7 +49,7 @@ public class Core extends JavaPlugin implements Runnable{
 		pm.registerEvent(Event.Type.PLAYER_INTERACT, interactListener, Event.Priority.Normal, this);
 		setupPermissions();
 		Data.loadGates();
-		getServer().getScheduler().scheduleSyncRepeatingTask(this, this, 1L, 10);
+		getServer().getScheduler().scheduleSyncRepeatingTask(this, this, 1L, Data.serverTickRate);
 		debug("by D4l3k! is enabled!");
 	}
 	public void onDisable(){

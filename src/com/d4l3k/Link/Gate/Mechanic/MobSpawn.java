@@ -1,17 +1,14 @@
 package com.d4l3k.Link.Gate.Mechanic;
 
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.block.CraftSign;
 import org.bukkit.entity.CreatureType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
-import com.d4l3k.Link.Core;
 import com.d4l3k.Link.Data;
 import com.d4l3k.Link.GateLocation;
 
@@ -42,7 +39,7 @@ public class MobSpawn extends BaseGate{
 		Execute();
 	}
 	public MobSpawn() {
-		// TODO Auto-generated constructor stub
+		// Auto-generated constructor stub
 	}
 	public void Execute()
 	{

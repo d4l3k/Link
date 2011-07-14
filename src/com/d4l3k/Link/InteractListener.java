@@ -9,11 +9,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerListener;
 
-import com.d4l3k.Link.Gate.IO.Button;
-import com.d4l3k.Link.Gate.IO.StringToggle;
-import com.d4l3k.Link.Gate.IO.Toggle;
-
-
 public class InteractListener extends PlayerListener {
 	public static Core plugin; 
 	public InteractListener(Core instance) { 
