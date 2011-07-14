@@ -149,4 +149,16 @@ public class Data {
 		}
 	}
 	
+	public static void runSelfTriggered()
+	{
+		Core.debug("SelfTriggered!");
+		for(int i=0;i<allGates.size();i++)
+		{
+			BaseGate gate = allGates.get(i);
+			if(gate.gateSelfTriggered==true)
+			{
+				GateConfig.executeBaseGate(gate);
+			}
+		}
+	}
 }

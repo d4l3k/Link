@@ -17,6 +17,7 @@ public class BaseGate {
 	public Object[] gateOutputs = new Object[0];
 	public String gateStrData = "";
 	public Double gateDouData = 0.0;
+	public Boolean gateSelfTriggered = false;
 	public BaseGate()
 	{
 		

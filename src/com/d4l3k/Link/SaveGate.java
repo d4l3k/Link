@@ -22,6 +22,7 @@ public class SaveGate implements Serializable{
 	public Object[] gateOutputs = new Object[0];
 	public String gateStrData = "";
 	public Double gateDouData = 0.0;
+	public Boolean gateSelfTriggered = false;
 	public SaveGate(BaseGate gate)
 	{
 		gateName = gate.gateName;
@@ -40,6 +41,7 @@ public class SaveGate implements Serializable{
 		gateOutputs = gate.gateOutputs;
 		gateStrData = gate.gateStrData;
 		gateDouData = gate.gateDouData;
+		gateSelfTriggered = gate.gateSelfTriggered;
 	}
 	public BaseGate getBaseGate()
 	{
@@ -60,6 +62,7 @@ public class SaveGate implements Serializable{
 		gate.gateOutputs = gateOutputs;
 		gate.gateStrData = gateStrData;
 		gate.gateDouData = gateDouData;
+		gate.gateSelfTriggered = gateSelfTriggered;
 		return gate;
 	}
 }

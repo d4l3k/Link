@@ -15,7 +15,7 @@ import com.nijiko.permissions.PermissionHandler;
 import com.nijikokun.bukkit.Permissions.Permissions;
 import org.bukkit.plugin.Plugin;
 
-public class Core extends JavaPlugin{
+public class Core extends JavaPlugin implements Runnable{
 	static Logger log = Logger.getLogger("Minecraft");
 	public static Server server;
 	public static PermissionHandler permissionHandler;
@@ -92,5 +92,7 @@ public class Core extends JavaPlugin{
 		}
 		return false;
 	}
-	
+	public void run() {
+		Data.runSelfTriggered();
+	}
 }
