@@ -19,6 +19,7 @@ public class DoubleAny extends BaseGate{
 		this.gateOutputTypes = new String[1];
 		this.gateOutputTypes[0] = "double";
 		this.gateOutputs = new Object[1];
+		this.gateOutputs[0] = 0.0;
 		
 		this.gateInputNames = new String[8];
 		this.gateInputNames[0] = "Double1";
