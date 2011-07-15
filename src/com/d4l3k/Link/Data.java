@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
@@ -80,7 +81,16 @@ public class Data {
 		}
 		for(int i=0;i<saveGates.size();i++)
 		{
-			updateGate(saveGates.get(i).getBaseGate());
+			BaseGate gate = saveGates.get(i).getBaseGate();
+			Material type = gate.gateBlock.getType();
+			if(type.equals(Material.SIGN_POST)||type.equals(Material.WALL_SIGN))
+			{
+				updateGate(gate);
+			}
+			else
+			{
+				Core.debug("StaleGate: "+gate.gateID);
+			}
 		}
 	}
 	public static void addGate(BaseGate gate)
@@ -107,10 +117,29 @@ public class Data {
 	{
 		allGates.remove(gate);
 	}
+	
+	public static Object getInput(BaseGate gate, int index)
+	{
+		return getInput(gate,index,"");
+	}
+	public static Object getInput(BaseGate gate, int index, Object escape)
+	{
+		Block block = gate.gateInputs[index];
+		int Input = gate.gateInputIndexs[index];
+		
+		BaseGate gate1 = getBaseGate(block);
+		if(gate1.gateOutputs.length>0)
+		{
+			return gate1.gateOutputs[Input];
+		}
+		return escape;
+	}
+	
 	public static Object getInput(Block block, int Input)
 	{
 		return getInput(block,Input,"");
 	}
+
 	public static Object getInput(Block block, int Input, Object escape)
 	{
 		BaseGate gate = getBaseGate(block);

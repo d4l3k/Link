@@ -30,7 +30,6 @@ public class Counter extends BaseGate{
 		this.gateInputs = new Block[2];
 		this.gateInputIndexs = new int[2];
 		
-		this.gateSelfTriggered = true;
 		this.gateDouData = 0.0;
 		
 	}

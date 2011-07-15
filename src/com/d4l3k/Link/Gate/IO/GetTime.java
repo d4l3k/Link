@@ -1,4 +1,4 @@
-package com.d4l3k.Link.Gate.Double;
+package com.d4l3k.Link.Gate.IO;
 
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.block.CraftSign;
@@ -8,44 +8,46 @@ import com.d4l3k.Link.BaseGate;
 import com.d4l3k.Link.Data;
 
 
-public class DoubleInverse extends BaseGate{
-	public DoubleInverse(SignChangeEvent event)
+public class GetTime extends BaseGate{
+	public GetTime(SignChangeEvent event)
 	{
-		this.gateName = "Double Inverse";
-		this.gateID = "[Inverse]";
+		this.gateName = "Get Time";
+		this.gateID = "[GetTime]";
 		this.gateBlock = event.getBlock();
 		this.gateOutputNames = new String[1];
-		this.gateOutputNames[0] = "Inverted";
+		this.gateOutputNames[0] = "Time";
 		this.gateOutputTypes = new String[1];
 		this.gateOutputTypes[0] = "double";
 		this.gateOutputs = new Object[1];
 		
 		this.gateInputNames = new String[1];
-		this.gateInputNames[0] = "Value";
+		this.gateInputNames[0] = "Update";
 		this.gateInputTypes = new String[1];
 		this.gateInputTypes[0] = "double";
 		this.gateInputs = new Block[1];
 		this.gateInputIndexs = new int[1];
-		Execute();
+
+		this.gateOutputs[0] = 0.0;
+		
+		event.setLine(1, Double.toString((Double)this.gateOutputs[0]));
 	}
-	public DoubleInverse() {
+	public GetTime() {
 		// TODO Auto-generated constructor stub
 	}
 	public void Execute()
 	{
-		double data = 0.0;
-		if((Double)Data.getInput(gateInputs[0], gateInputIndexs[0],0.0)<1.0)
-		{
-			data = 1.0;
-		}
+		if((Double)Data.getInput(this, 0)<1.0)
+			return;
 		
-		if(!gateOutputs[0].equals(data))
+		CraftSign sig = new CraftSign(this.gateBlock);
+		double time = (double)gateBlock.getWorld().getTime();
+		if(!this.gateOutputNames[0].equals(time))
 		{
-			this.gateOutputs[0]=data;
+			this.gateOutputs[0] = time;
 			Data.updateInput(gateBlock, 0);
 		}
-		CraftSign sig = new CraftSign(this.gateBlock);
-		sig.setLine(1, "Equal: "+Double.toString(data));
+		sig.setLine(1, Double.toString((Double)this.gateOutputs[0]));
 		sig.update();
+		
 	}
 }

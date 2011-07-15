@@ -57,8 +57,11 @@ public class DoubleAdd extends BaseGate{
 			}
 		}
 		
-		this.gateOutputs[0]=data;
-		Data.updateInput(gateBlock, 0);
+		if(!gateOutputs[0].equals(data))
+		{
+			this.gateOutputs[0]=data;
+			Data.updateInput(gateBlock, 0);
+		}
 		CraftSign sig = new CraftSign(this.gateBlock);
 		sig.setLine(1, Double.toString(data));
 		sig.update();

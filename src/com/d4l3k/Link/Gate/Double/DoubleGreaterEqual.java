@@ -43,6 +43,7 @@ public class DoubleGreaterEqual extends BaseGate{
 		}
 		if(!gateOutputs[0].equals(data))
 		{
+			this.gateOutputs[0]=data;
 			Data.updateInput(gateBlock, 0);
 		}
 		CraftSign sig = new CraftSign(this.gateBlock);

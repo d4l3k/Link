@@ -8,11 +8,11 @@ import com.d4l3k.Link.BaseGate;
 import com.d4l3k.Link.Data;
 
 
-public class DoubleSubtract extends BaseGate{
-	public DoubleSubtract(SignChangeEvent event)
+public class DoubleAny extends BaseGate{
+	public DoubleAny(SignChangeEvent event)
 	{
-		this.gateName = "Double Subtract";
-		this.gateID = "[Subtract]";
+		this.gateName = "Double Any";
+		this.gateID = "[Any]";
 		this.gateBlock = event.getBlock();
 		this.gateOutputNames = new String[1];
 		this.gateOutputNames[0] = "Value";
@@ -43,17 +43,19 @@ public class DoubleSubtract extends BaseGate{
 		this.gateInputIndexs = new int[8];
 		Execute();
 	}
-	public DoubleSubtract() {
+	public DoubleAny() {
 		// TODO Auto-generated constructor stub
 	}
 	public void Execute()
 	{
-		double data = (Double)Data.getInput(gateInputs[0], gateInputIndexs[0], 0.0);
-		for(int i=1;i<8;i++)
+		double data = 0.0;
+		for(int i=0;i<8;i++)
 		{
-			if(!Data.getBaseGate(gateInputs[i]).gateName.equalsIgnoreCase(""))
+			double val = (Double)Data.getInput(this, i, 0.0);
+			if(val>=1.0)
 			{
-				data-=(Double)Data.getInput(gateInputs[0], gateInputIndexs[0], 0.0);
+				data = 1.0;
+				i=8;
 			}
 		}
 		

@@ -80,6 +80,14 @@ public class GateConfig {
 			((Counter)gate).Execute();
 		else if(ID.equalsIgnoreCase("[Latch]"))
 			((Latch)gate).Execute();
+		else if(ID.equalsIgnoreCase("[GetTime]"))
+			((GetTime)gate).Execute();
+		else if(ID.equalsIgnoreCase("[SetTime]"))
+			((SetTime)gate).Execute();
+		else if(ID.equalsIgnoreCase("[DoubleAll]"))
+			((DoubleAll)gate).Execute();
+		else if(ID.equalsIgnoreCase("[DoubleAny]"))
+			((DoubleAny)gate).Execute();
 	}
 	// Gates that execute on click.
 	public static void interactBaseGate(BaseGate gate)
@@ -162,6 +170,14 @@ public class GateConfig {
 			obj = new Counter(event);
 		else if(type.equalsIgnoreCase("[Latch]"))
 			obj = new Latch(event);
+		else if(type.equalsIgnoreCase("[GetTime]"))
+			obj = new GetTime(event);
+		else if(type.equalsIgnoreCase("[SetTime]"))
+			obj = new SetTime(event);
+		else if(type.equalsIgnoreCase("[DoubleAll]"))
+			obj = new DoubleAll(event);
+		else if(type.equalsIgnoreCase("[DoubleAny]"))
+			obj = new DoubleAny(event);
 		
 		return obj;
 	}
@@ -235,6 +251,14 @@ public class GateConfig {
 			obj =  new Counter();
 		else if(type.equalsIgnoreCase("[Latch]"))
 			obj =  new Latch();
+		else if(type.equalsIgnoreCase("[GetTime]"))
+			obj = new GetTime();
+		else if(type.equalsIgnoreCase("[SetTime]"))
+			obj = new SetTime();
+		else if(type.equalsIgnoreCase("[DoubleAll]"))
+			obj = new DoubleAll();
+		else if(type.equalsIgnoreCase("[DoubleAny]"))
+			obj = new DoubleAny();
 		
 		return obj;
 	}
