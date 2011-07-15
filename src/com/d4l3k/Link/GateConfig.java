@@ -84,9 +84,9 @@ public class GateConfig {
 			((GetTime)gate).Execute();
 		else if(ID.equalsIgnoreCase("[SetTime]"))
 			((SetTime)gate).Execute();
-		else if(ID.equalsIgnoreCase("[DoubleAll]"))
+		else if(ID.equalsIgnoreCase("[All]"))
 			((DoubleAll)gate).Execute();
-		else if(ID.equalsIgnoreCase("[DoubleAny]"))
+		else if(ID.equalsIgnoreCase("[Any]"))
 			((DoubleAny)gate).Execute();
 	}
 	// Gates that execute on click.
@@ -174,9 +174,9 @@ public class GateConfig {
 			obj = new GetTime(event);
 		else if(type.equalsIgnoreCase("[SetTime]"))
 			obj = new SetTime(event);
-		else if(type.equalsIgnoreCase("[DoubleAll]"))
+		else if(type.equalsIgnoreCase("[All]"))
 			obj = new DoubleAll(event);
-		else if(type.equalsIgnoreCase("[DoubleAny]"))
+		else if(type.equalsIgnoreCase("[Any]"))
 			obj = new DoubleAny(event);
 		
 		return obj;
@@ -255,9 +255,9 @@ public class GateConfig {
 			obj = new GetTime();
 		else if(type.equalsIgnoreCase("[SetTime]"))
 			obj = new SetTime();
-		else if(type.equalsIgnoreCase("[DoubleAll]"))
+		else if(type.equalsIgnoreCase("[All]"))
 			obj = new DoubleAll();
-		else if(type.equalsIgnoreCase("[DoubleAny]"))
+		else if(type.equalsIgnoreCase("[Any]"))
 			obj = new DoubleAny();
 		
 		return obj;
