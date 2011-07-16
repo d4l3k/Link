@@ -36,7 +36,6 @@ public class MobSpawn extends BaseGate{
 		this.gateInputTypes[2] = "double";
 		this.gateInputs = new Block[3];
 		this.gateInputIndexs = new int[3];
-		Execute();
 	}
 	public MobSpawn() {
 		// Auto-generated constructor stub

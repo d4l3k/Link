@@ -31,7 +31,6 @@ public class PlayerDetect extends BaseGate{
 		this.gateInputTypes[1] = "double";
 		this.gateInputs = new Block[2];
 		this.gateInputIndexs = new int[2];
-		Execute();
 	}
 	public PlayerDetect() {
 		// TODO Auto-generated constructor stub

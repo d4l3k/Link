@@ -32,7 +32,6 @@ public class PlayerPosition extends BaseGate{
 		this.gateInputTypes[1] = "string";
 		this.gateInputs = new Block[2];
 		this.gateInputIndexs = new int[2];
-		Execute();
 	}
 	public PlayerPosition() {
 		// TODO Auto-generated constructor stub

@@ -11,8 +11,8 @@ import com.d4l3k.Link.Data;
 public class DoubleAll extends BaseGate{
 	public DoubleAll(SignChangeEvent event)
 	{
-		this.gateName = "Double Any";
-		this.gateID = "[Any]";
+		this.gateName = "Double All";
+		this.gateID = "[All]";
 		this.gateBlock = event.getBlock();
 		this.gateOutputNames = new String[1];
 		this.gateOutputNames[0] = "Value";

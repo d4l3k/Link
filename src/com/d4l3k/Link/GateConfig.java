@@ -88,6 +88,8 @@ public class GateConfig {
 			((DoubleAll)gate).Execute();
 		else if(ID.equalsIgnoreCase("[Any]"))
 			((DoubleAny)gate).Execute();
+		else if(ID.equalsIgnoreCase("[Turret]"))
+			((Turret)gate).Execute();
 	}
 	// Gates that execute on click.
 	public static void interactBaseGate(BaseGate gate)
@@ -178,6 +180,8 @@ public class GateConfig {
 			obj = new DoubleAll(event);
 		else if(type.equalsIgnoreCase("[Any]"))
 			obj = new DoubleAny(event);
+		else if(type.equalsIgnoreCase("[Turret]"))
+			obj = new Turret(event);
 		
 		return obj;
 	}
@@ -259,6 +263,8 @@ public class GateConfig {
 			obj = new DoubleAll();
 		else if(type.equalsIgnoreCase("[Any]"))
 			obj = new DoubleAny();
+		else if(type.equalsIgnoreCase("[Turret]"))
+			obj = new Turret();
 		
 		return obj;
 	}
