@@ -43,12 +43,12 @@ public class Turret extends BaseGate{
 	{
 		if((Double)Data.getInput(this,1, 0.0)>=1.0)
 		{
-			Location loc = ((GateLocation)Data.getInput(this,1, new GateLocation(gateBlock.getWorld()))).getLocation();
-			Vector offset = gateBlock.getLocation().toVector().subtract(loc.toVector());
+			Location loc = ((GateLocation)Data.getInput(this,0, new GateLocation(gateBlock.getWorld()))).getLocation();
+			Vector offset = loc.toVector().subtract(gateBlock.getLocation().toVector());
 			Vector vel = offset.normalize();
-			double speed = (Double)Data.getInput(this, 2, 0.0);
-			double spread = (Double)Data.getInput(this, 3, 0.0);
-			gateBlock.getWorld().spawnArrow(gateBlock.getLocation(), vel, (float)speed, (float)spread);
+			double speed = (Double)Data.getInput(this, 2, 0.6);
+			double spread = (Double)Data.getInput(this, 3, 12.0);
+			gateBlock.getWorld().spawnArrow(gateBlock.getLocation().add(0.5, 0.5, 0.5), vel, (float)speed, (float)spread);
 			
 		}
 	}
