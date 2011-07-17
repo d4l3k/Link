@@ -44,7 +44,11 @@ public class PlayerDetect extends BaseGate{
 			}
 			
 		}
-		String selectPlayer = player.get(0).getName();
+		String selectPlayer = "";
+		if(player.size()>=1)
+		{
+			selectPlayer = player.get(0).getName();
+		}
 		this.setOutput(0, selectPlayer);
 		CraftSign sig = new CraftSign(this.gateBlock);
 		sig.setLine(1, "T: "+selectPlayer);

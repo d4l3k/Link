@@ -32,7 +32,7 @@ public class SaveGate implements Serializable{
 		gateInputTypes = gate.gateInputTypes;
 		for(int i=0;i<gate.gateInputs.size();i++)
 		{
-			gateInputs.set(i, new GateBlock(gate.gateInputs.get(i)));
+			gateInputs.add(new GateBlock(gate.gateInputs.get(i)));
 		}
 		gateInputIndexs = gate.gateInputIndexs;
 		gateOutputNames = gate.gateOutputNames;
@@ -52,7 +52,7 @@ public class SaveGate implements Serializable{
 		gate.gateInputTypes = gateInputTypes;
 		for(int i=0;i<gateInputs.size();i++)
 		{
-			gate.gateInputs.set(i, gateInputs.get(i).getBlock());
+			gate.gateInputs.add(gateInputs.get(i).getBlock());
 		}
 		gate.gateInputIndexs = gateInputIndexs;
 		gate.gateOutputNames = gateOutputNames;

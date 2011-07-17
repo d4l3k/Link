@@ -122,23 +122,23 @@ public class GateConfig {
 			obj =  new StringEqual(event);
 		else if(type.equalsIgnoreCase("[StringAdd]"))
 			obj =  new StringAdd(event);
-		else if(type.equalsIgnoreCase("[Equal]"))
+		else if(type.equalsIgnoreCase("[Equal]")||type.equalsIgnoreCase("[==]"))
 			obj =  new DoubleEqual(event);
-		else if(type.equalsIgnoreCase("[Add]"))
+		else if(type.equalsIgnoreCase("[Add]")||type.equalsIgnoreCase("[+]"))
 			obj =  new DoubleAdd(event);
-		else if(type.equalsIgnoreCase("[Divide]"))
+		else if(type.equalsIgnoreCase("[Divide]")||type.equalsIgnoreCase("[/]"))
 			obj =  new DoubleDivide(event);
-		else if(type.equalsIgnoreCase("[Greater]"))
+		else if(type.equalsIgnoreCase("[Greater]")||type.equalsIgnoreCase("[>]"))
 			obj =  new DoubleGreater(event);
-		else if(type.equalsIgnoreCase("[GreaterEqual]"))
+		else if(type.equalsIgnoreCase("[GreaterEqual]")||type.equalsIgnoreCase("[>=]"))
 			obj =  new DoubleGreaterEqual(event);
-		else if(type.equalsIgnoreCase("[Less]"))
+		else if(type.equalsIgnoreCase("[Less]")||type.equalsIgnoreCase("[<]"))
 			obj =  new DoubleLess(event);
-		else if(type.equalsIgnoreCase("[LessEqual]"))
+		else if(type.equalsIgnoreCase("[LessEqual]")||type.equalsIgnoreCase("[<=]"))
 			obj =  new DoubleLessEqual(event);
-		else if(type.equalsIgnoreCase("[Multiply]"))
+		else if(type.equalsIgnoreCase("[Multiply]")||type.equalsIgnoreCase("[*]"))
 			obj =  new DoubleMultiply(event);
-		else if(type.equalsIgnoreCase("[Subtract]"))
+		else if(type.equalsIgnoreCase("[Subtract]")||type.equalsIgnoreCase("[-]"))
 			obj =  new DoubleSubtract(event);
 		else if(type.equalsIgnoreCase("[ToString]"))
 			obj =  new DoubleToString(event);

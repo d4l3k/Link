@@ -22,7 +22,7 @@ public class StringEqual extends BaseGate{
 	public void Execute()
 	{
 		double data = 0.0;
-		if(this.getInput(0, "").equals(this.getInput(0, "")))
+		if(this.getInput(0, "").equals(this.getInput(1, "")))
 		{
 			data = 1.0;
 		}
