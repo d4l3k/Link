@@ -8,27 +8,22 @@ import com.d4l3k.Link.BaseGate;
 public class ConstantValue extends BaseGate{
 	public ConstantValue(SignChangeEvent event)
 	{
+		super(event);
 		this.gateName = "Constant Value";
 		this.gateID = "[Constant]";
 		this.gateBlock = event.getBlock();
-		this.gateOutputNames = new String[1];
-		this.gateOutputNames[0] = "Value";
-		this.gateOutputTypes = new String[1];
-		this.gateOutputTypes[0] = "string";
-		this.gateOutputs = new Object[1];
-		
 		this.gateStrData = event.getLine(1)+event.getLine(2)+event.getLine(3);
 		
 		try
 		{
 			double parse = Double.parseDouble(this.gateStrData);
-			this.gateOutputTypes[0] = "double";
-			this.gateOutputs[0] = parse;
+			this.addOutput("Value","double");
+			this.setOutput(0, parse);
 		}
 		catch(Exception Ex)
 		{
-			this.gateOutputTypes[0] = "string";
-			this.gateOutputs[0] = this.gateStrData;
+			this.addOutput("Value","string");
+			this.setOutput(0, this.gateStrData);
 		}
 		
 	}

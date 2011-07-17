@@ -8,21 +8,14 @@ import org.bukkit.craftbukkit.block.CraftSign;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
-import com.d4l3k.Link.Data;
-
 
 public class RedstoneOut extends BaseGate{
 	public RedstoneOut(SignChangeEvent event)
 	{
+		super(event);
 		this.gateName = "Redstone Out";
 		this.gateID = "[RedstoneOut]";
-		this.gateBlock = event.getBlock();
-		this.gateInputNames = new String[1];
-		this.gateInputNames[0] = "Power";
-		this.gateInputTypes = new String[1];
-		this.gateInputTypes[0] = "double";
-		this.gateInputs = new Block[1];
-		this.gateInputIndexs = new int[1];
+		this.addInput("Power", "double");
 		
 		this.gateStrData = event.getLine(1);
 		this.gateDouData = 0.0;
@@ -58,7 +51,7 @@ public class RedstoneOut extends BaseGate{
 			{
 				levPos-=8;
 			}
-			double data = (Double)Data.getInput(gateInputs[0], gateInputIndexs[0]);
+			double data = (Double)this.getInput(0, 0.0);
 			if(data<=0)
 			{
 				block.setData((byte) levPos);

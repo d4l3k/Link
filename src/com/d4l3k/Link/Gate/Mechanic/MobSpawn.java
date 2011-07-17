@@ -1,7 +1,6 @@
 package com.d4l3k.Link.Gate.Mechanic;
 
 import org.bukkit.Location;
-import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.block.CraftSign;
 import org.bukkit.entity.CreatureType;
 import org.bukkit.entity.LivingEntity;
@@ -9,33 +8,19 @@ import org.bukkit.entity.Wolf;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
-import com.d4l3k.Link.Data;
 import com.d4l3k.Link.GateLocation;
-
 
 public class MobSpawn extends BaseGate{
 	public MobSpawn(SignChangeEvent event)
 	{
+		super(event);
 		this.gateName = "Mob Spawner";
 		this.gateID = "[MobSpawn]";
 		this.gatePerm = "danger";
-		this.gateBlock = event.getBlock();
-		//this.gateOutputNames = new String[1];
-		//this.gateOutputNames[0] = "Player";
-		//this.gateOutputTypes = new String[1];
-		//this.gateOutputTypes[0] = "string";
-		//this.gateOutputs = new Object[1];
 		
-		this.gateInputNames = new String[3];
-		this.gateInputNames[0] = "Mob";
-		this.gateInputNames[1] = "Target";
-		this.gateInputNames[2] = "Execute";
-		this.gateInputTypes = new String[3];
-		this.gateInputTypes[0] = "string";
-		this.gateInputTypes[1] = "location";
-		this.gateInputTypes[2] = "double";
-		this.gateInputs = new Block[3];
-		this.gateInputIndexs = new int[3];
+		this.addInput("Mob", "string");
+		this.addInput("Target", "location");
+		this.addInput("Execute", "double");
 	}
 	public MobSpawn() {
 		// Auto-generated constructor stub
@@ -43,10 +28,10 @@ public class MobSpawn extends BaseGate{
 	public void Execute()
 	{
 		CreatureType[] creatures = CreatureType.values();
-		String mob = (String)Data.getInput(gateInputs[0], gateInputIndexs[0]);
-		if((Double)Data.getInput(gateInputs[2], gateInputIndexs[2], 0.0)>=1.0)
+		String mob = (String)this.getInput(0, "");
+		if((Double)this.getInput(2, 0.0)>=1.0)
 		{
-			Location loc = ((GateLocation)Data.getInput(gateInputs[1], gateInputIndexs[1], new GateLocation(gateBlock.getWorld()))).getLocation();
+			Location loc = ((GateLocation)this.getInput(1, new GateLocation(gateBlock.getWorld()))).getLocation();
 			for(int i=0;i<creatures.length;i++)
 			{
 				if(creatures[i].name().equalsIgnoreCase(mob))

@@ -70,6 +70,8 @@ public class GateConfig {
 			((DoubleInverse)gate).Execute();
 		else if(ID.equalsIgnoreCase("[LocAdd]"))
 			((LocationAdd)gate).Execute();
+		else if(ID.equalsIgnoreCase("[LocSubtract]"))
+			((LocationSubtract)gate).Execute();
 		else if(ID.equalsIgnoreCase("[MobSpawn]"))
 			((MobSpawn)gate).Execute();
 		else if(ID.equalsIgnoreCase("[Button]"))
@@ -102,7 +104,7 @@ public class GateConfig {
 		else if(ID.equalsIgnoreCase("[Button]"))
 			((Button)gate).Execute();
 	}
-	// Handles creating new gates
+	// Handles creating new gates. You can add aliases here. Just add a ||type.equalsIgnoreCase("[<alias>]").
 	public static BaseGate newBaseGate(String type, SignChangeEvent event)
 	{
 		BaseGate obj = null;
@@ -162,6 +164,8 @@ public class GateConfig {
 			obj =  new StringToggle(event);
 		else if(type.equalsIgnoreCase("[LocAdd]"))
 			obj =  new LocationAdd(event);
+		else if(type.equalsIgnoreCase("[LocSubtract]"))
+			obj =  new LocationSubtract(event);
 		else if(type.equalsIgnoreCase("[MobSpawn]"))
 			obj =  new MobSpawn(event);
 		else if(type.equalsIgnoreCase("[Button]"))
@@ -245,6 +249,8 @@ public class GateConfig {
 			obj =  new StringToggle();
 		else if(type.equalsIgnoreCase("[LocAdd]"))
 			obj =  new LocationAdd();
+		else if(type.equalsIgnoreCase("[LocSubtract]"))
+			obj =  new LocationSubtract();
 		else if(type.equalsIgnoreCase("[MobSpawn]"))
 			obj =  new MobSpawn();
 		else if(type.equalsIgnoreCase("[Button]"))

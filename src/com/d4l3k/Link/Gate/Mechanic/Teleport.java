@@ -1,51 +1,34 @@
 package com.d4l3k.Link.Gate.Mechanic;
 
 import org.bukkit.Location;
-import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.block.CraftSign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
 import com.d4l3k.Link.Core;
-import com.d4l3k.Link.Data;
 import com.d4l3k.Link.GateLocation;
-
 
 public class Teleport extends BaseGate{
 	public Teleport(SignChangeEvent event)
 	{
+		super(event);
 		this.gateName = "Player Teleport";
 		this.gateID = "[Teleport]";
 		this.gatePerm = "danger";
-		this.gateBlock = event.getBlock();
-		//this.gateOutputNames = new String[1];
-		//this.gateOutputNames[0] = "Player";
-		//this.gateOutputTypes = new String[1];
-		//this.gateOutputTypes[0] = "string";
-		//this.gateOutputs = new Object[1];
-		
-		this.gateInputNames = new String[3];
-		this.gateInputNames[0] = "Player";
-		this.gateInputNames[1] = "Target";
-		this.gateInputNames[2] = "Execute";
-		this.gateInputTypes = new String[3];
-		this.gateInputTypes[0] = "string";
-		this.gateInputTypes[1] = "location";
-		this.gateInputTypes[2] = "double";
-		this.gateInputs = new Block[3];
-		this.gateInputIndexs = new int[3];
-		Execute();
+		this.addInput("Player", "string");
+		this.addInput("Target", "location");
+		this.addInput("Execute", "double");
 	}
 	public Teleport() {
 		// TODO Auto-generated constructor stub
 	}
 	public void Execute()
 	{
-		if((Double)Data.getInput(gateInputs[2], gateInputIndexs[2], 0.0)>=1.0)
+		if((Double)this.getInput(2, 0.0)>=1.0)
 		{
-			Player plr = Core.server.getPlayer((String)Data.getInput(gateInputs[0], gateInputIndexs[0], ""));
-			Location loc = ((GateLocation)Data.getInput(gateInputs[1], gateInputIndexs[1], new GateLocation(plr.getLocation()))).getLocation();
+			Player plr = Core.server.getPlayer((String)this.getInput(0, ""));
+			Location loc = ((GateLocation)this.getInput(1, new GateLocation(plr.getLocation()))).getLocation();
 			plr.teleport(loc);
 			
 			CraftSign sig = new CraftSign(this.gateBlock);

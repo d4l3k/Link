@@ -36,7 +36,7 @@ public class InteractListener extends PlayerListener {
 					return;
 				if(status == 0)
 				{
-					if(gate.gateInputNames.length==0)
+					if(gate.gateInputNames.size()==0)
 					{
 						plr.sendMessage("[LINK] "+ChatColor.RED+"Gate has no Input Values. Canceling...");
 						Data.playerEditStatus.put(plr,0);
@@ -51,13 +51,13 @@ public class InteractListener extends PlayerListener {
 					Data.playerEditSelection.put(plr,0);
 					Data.playerEditFirstGate.put(plr, gate.gateBlock);
 					ChatColor clr = ChatColor.RED;
-					if(!Data.getBaseGate(gate.gateInputs[0]).gateName.equalsIgnoreCase(""))
+					if(!Data.getBaseGate(gate.gateInputs.get(0)).gateName.equalsIgnoreCase(""))
 					{
 						clr = ChatColor.GREEN;
 					}
 					CraftSign sig = new CraftSign(gate.gateBlock);
-					sig.setLine(2, clr+gate.gateInputNames[0]);
-					sig.setLine(3, clr+gate.gateInputTypes[0]);
+					sig.setLine(2, clr+gate.gateInputNames.get(0));
+					sig.setLine(3, clr+gate.gateInputTypes.get(0));
 					sig.update();
 					Data.playerEditStatus.put(plr,1);
 				}
@@ -68,19 +68,19 @@ public class InteractListener extends PlayerListener {
 						int data = Data.playerEditSelection.get(plr);
 						BaseGate gateGood = Data.getBaseGate(Data.playerEditFirstGate.get(plr));
 						data++;
-						if(data>=gateGood.gateInputNames.length)
+						if(data>=gateGood.gateInputNames.size())
 						{
 							data = 0;
 						}
 						Data.playerEditSelection.put(plr,data);
 						CraftSign sig = new CraftSign(gateGood.gateBlock);
 						ChatColor clr = ChatColor.RED;
-						if(!Data.getBaseGate(gateGood.gateInputs[data]).gateName.equalsIgnoreCase(""))
+						if(!Data.getBaseGate(gateGood.gateInputs.get(data)).gateName.equalsIgnoreCase(""))
 						{
 							clr = ChatColor.GREEN;
 						}
-						sig.setLine(2, clr+gateGood.gateInputNames[data]);
-						sig.setLine(3, clr+gateGood.gateInputTypes[data]);
+						sig.setLine(2, clr+gateGood.gateInputNames.get(data));
+						sig.setLine(3, clr+gateGood.gateInputTypes.get(data));
 						sig.update();
 					}
 					if(event.getAction().equals(Action.LEFT_CLICK_BLOCK))
@@ -96,7 +96,7 @@ public class InteractListener extends PlayerListener {
 				}
 				if(status == 2)
 				{
-					if(gate.gateOutputNames.length==0)
+					if(gate.gateOutputNames.size()==0)
 					{
 						plr.sendMessage("[LINK] "+ChatColor.RED+"Gate has no Output Values. Canceling...");
 						Data.playerEditStatus.put(plr,0);
@@ -105,8 +105,8 @@ public class InteractListener extends PlayerListener {
 					Data.playerEditSecondSelection.put(plr,0);
 					Data.playerEditSecondGate.put(plr, gate.gateBlock);
 					CraftSign sig = new CraftSign(gate.gateBlock);
-					sig.setLine(2, gate.gateOutputNames[0]);
-					sig.setLine(3, gate.gateOutputTypes[0]);
+					sig.setLine(2, gate.gateOutputNames.get(0));
+					sig.setLine(3, gate.gateOutputTypes.get(0));
 					sig.update();
 					Data.playerEditStatus.put(plr,3);
 				}
@@ -117,14 +117,14 @@ public class InteractListener extends PlayerListener {
 						int data = Data.playerEditSecondSelection.get(plr);
 						BaseGate gateGood = Data.getBaseGate(Data.playerEditSecondGate.get(plr));
 						data++;
-						if(data>=gateGood.gateOutputNames.length)
+						if(data>=gateGood.gateOutputNames.size())
 						{
 							data = 0;
 						}
 						Data.playerEditSecondSelection.put(plr,data);
 						CraftSign sig = new CraftSign(gateGood.gateBlock);
-						sig.setLine(2, gateGood.gateOutputNames[data]);
-						sig.setLine(3, gateGood.gateOutputTypes[data]);
+						sig.setLine(2, gateGood.gateOutputNames.get(data));
+						sig.setLine(3, gateGood.gateOutputTypes.get(data));
 						sig.update();
 					}
 					if(event.getAction().equals(Action.LEFT_CLICK_BLOCK))
@@ -133,15 +133,15 @@ public class InteractListener extends PlayerListener {
 						BaseGate secondGate = Data.getBaseGate(Data.playerEditSecondGate.get(plr));
 						int firstSelection = Data.playerEditSelection.get(plr);
 						int secondSelection = Data.playerEditSecondSelection.get(plr);
-						String type = secondGate.gateOutputTypes[secondSelection];
-						String type1 = firstGate.gateInputTypes[firstSelection];
+						String type = secondGate.gateOutputTypes.get(secondSelection);
+						String type1 = firstGate.gateInputTypes.get(firstSelection);
 						if(!type.equalsIgnoreCase(type1))
 						{
 							plr.sendMessage("[LINK] "+ChatColor.RED+"Wrong output type! Must be: "+type1);
 							return;
 						}
-						firstGate.gateInputs[firstSelection]=Data.playerEditSecondGate.get(plr);
-						firstGate.gateInputIndexs[firstSelection]=secondSelection;
+						firstGate.gateInputs.set(firstSelection, Data.playerEditSecondGate.get(plr));
+						firstGate.gateInputIndexs.set(firstSelection, secondSelection);
 						Data.updateGate(firstGate);
 						Data.updateInput(secondGate.gateBlock, secondSelection);
 						CraftSign sig = new CraftSign(secondGate.gateBlock);

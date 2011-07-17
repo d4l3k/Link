@@ -5,44 +5,26 @@ import org.bukkit.craftbukkit.block.CraftSign;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
-import com.d4l3k.Link.Data;
 import com.d4l3k.Link.GateLocation;
-
 
 public class Position extends BaseGate{
 	public Position(SignChangeEvent event)
 	{
+		super(event);
 		this.gateName = "Sign Position";
 		this.gateID = "[Pos]";
-		this.gateBlock = event.getBlock();
-		this.gateOutputNames = new String[1];
-		this.gateOutputNames[0] = "Location";
-		this.gateOutputTypes = new String[1];
-		this.gateOutputTypes[0] = "location";
-		this.gateOutputs = new Object[1];
-		
-		/*this.gateInputNames = new String[2];
-		this.gateInputNames[0] = "Double1";
-		this.gateInputTypes = new String[2];
-		this.gateInputTypes[0] = "double";
-		this.gateInputs = new Block[2];
-		this.gateInputIndexs = new int[2];*/
-		Execute();
+		this.addOutput("Location", "location");
 	}
 	public Position() {
 		// TODO Auto-generated constructor stub
 	}
 	public void Execute()
 	{
-		Location pos = gateBlock.getLocation();
-		pos.setX(pos.getX()+0.5);
-		pos.setY(pos.getY()+0.5);
-		pos.setZ(pos.getZ()+0.5);
+		Location pos = gateBlock.getLocation().add(0.5, 0.5, 0.5);
 		
-		this.gateOutputs[0]=new GateLocation(pos);
-		Data.updateInput(gateBlock, 0);
+		this.setOutput(0, new GateLocation(pos));
 		CraftSign sig = new CraftSign(this.gateBlock);
-		sig.setLine(1, "T: "+gateBlock.getWorld().getName());
+		sig.setLine(1, "W: "+gateBlock.getWorld().getName());
 		sig.update();
 	}
 }

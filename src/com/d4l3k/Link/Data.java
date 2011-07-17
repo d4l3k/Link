@@ -124,13 +124,13 @@ public class Data {
 	}
 	public static Object getInput(BaseGate gate, int index, Object escape)
 	{
-		Block block = gate.gateInputs[index];
-		int Input = gate.gateInputIndexs[index];
+		Block block = gate.gateInputs.get(index);
+		int Input = gate.gateInputIndexs.get(index);
 		
 		BaseGate gate1 = getBaseGate(block);
-		if(gate1.gateOutputs.length>0)
+		if(gate1.gateOutputs.size()>0)
 		{
-			return gate1.gateOutputs[Input];
+			return gate1.gateOutputs.get(Input);
 		}
 		return escape;
 	}
@@ -143,9 +143,9 @@ public class Data {
 	public static Object getInput(Block block, int Input, Object escape)
 	{
 		BaseGate gate = getBaseGate(block);
-		if(gate.gateOutputs.length>0)
+		if(gate.gateOutputs.size()>0)
 		{
-			return gate.gateOutputs[Input];
+			return gate.gateOutputs.get(Input);
 		}
 		return escape;
 	}
@@ -168,11 +168,9 @@ public class Data {
 		for(int i=0;i<allGates.size();i++)
 		{
 			BaseGate gate = allGates.get(i);
-			Block[] Inputs = gate.gateInputs;
-			int[] Index = gate.gateInputIndexs;
-			for(int r =0;r<Inputs.length;r++)
+			for(int r =0;r<gate.gateInputs.size();r++)
 			{
-				if(block.equals(Inputs[r])&&Input==Index[r])
+				if(block.equals(gate.gateInputs.get(r))&&Input==gate.gateInputIndexs.get(r))
 				{
 					GateConfig.executeBaseGate(gate);
 				}
