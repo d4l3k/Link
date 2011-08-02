@@ -43,7 +43,7 @@ public class WorldListener extends BlockListener{
 			BaseGate gate = Data.getBaseGate(event.getBlock());
 			if(gate.gateID.equalsIgnoreCase("[RedstoneIn]"))
 			{
-				GateConfig.executeBaseGate(gate);
+				GateConfig.executeBaseGate(gate, -2, event.getOldCurrent(), event.getNewCurrent());
 			}
 		}
 	}

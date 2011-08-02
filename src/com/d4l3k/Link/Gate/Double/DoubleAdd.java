@@ -26,7 +26,7 @@ public class DoubleAdd extends BaseGate{
 	public DoubleAdd() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		double data = (Double)Data.getInput(this, 0, 0.0);
 		for(int i=1;i<8;i++)

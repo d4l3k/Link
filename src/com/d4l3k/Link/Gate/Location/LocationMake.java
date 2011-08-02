@@ -4,8 +4,6 @@ import org.bukkit.Location;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
-import com.d4l3k.Link.GateLocation;
-
 
 public class LocationMake extends BaseGate{
 	public LocationMake(SignChangeEvent event)
@@ -22,13 +20,13 @@ public class LocationMake extends BaseGate{
 	public LocationMake() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		
 		double x = (Double)this.getInput(0, 0.0);
 		double y = (Double)this.getInput(1, 0.0);
 		double z = (Double)this.getInput(2, 0.0);
 		Location loc = new Location(gateBlock.getWorld(),x,y,z);
-		this.setOutput(0, new GateLocation(loc));
+		this.setOutput(0, loc);
 	}
 }

@@ -18,7 +18,7 @@ public class DoubleGreaterEqual extends BaseGate{
 	public DoubleGreaterEqual() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		double data = 0.0;
 		if((Double)this.getInput(0, 0.0)>=(Double)this.getInput(1, 0.0))

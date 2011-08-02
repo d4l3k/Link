@@ -8,7 +8,6 @@ import org.bukkit.entity.Wolf;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
-import com.d4l3k.Link.GateLocation;
 
 public class MobSpawn extends BaseGate{
 	public MobSpawn(SignChangeEvent event)
@@ -25,13 +24,13 @@ public class MobSpawn extends BaseGate{
 	public MobSpawn() {
 		// Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		CreatureType[] creatures = CreatureType.values();
 		String mob = (String)this.getInput(0, "");
 		if((Double)this.getInput(2, 0.0)>=1.0)
 		{
-			Location loc = ((GateLocation)this.getInput(1, new GateLocation(gateBlock.getWorld()))).getLocation();
+			Location loc = (Location)this.getInput(1, gateBlock.getLocation());
 			for(int i=0;i<creatures.length;i++)
 			{
 				if(creatures[i].name().equalsIgnoreCase(mob))

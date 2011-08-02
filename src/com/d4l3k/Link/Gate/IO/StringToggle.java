@@ -1,12 +1,13 @@
 package com.d4l3k.Link.Gate.IO;
 
 import org.bukkit.craftbukkit.block.CraftSign;
+import org.bukkit.entity.Player;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
 
 
-public class StringToggle extends BaseGate{
+public class StringToggle extends BaseGate {
 	public StringToggle(SignChangeEvent event)
 	{
 		super(event);
@@ -21,14 +22,6 @@ public class StringToggle extends BaseGate{
 	}
 	public StringToggle() {
 		// TODO Auto-generated constructor stub
-	}
-	public void Execute()
-	{
-		CraftSign sig = new CraftSign(this.gateBlock);
-		updateOutput();
-		sig.setLine(1, (String)this.gateOutputs.get(0));
-		sig.update();
-		
 	}
 	public void updateOutput()
 	{
@@ -49,5 +42,12 @@ public class StringToggle extends BaseGate{
 		{
 			this.gateDouData=0.0;
 		}
+	}
+	public void Click(Player player) {
+		CraftSign sig = new CraftSign(this.gateBlock);
+		updateOutput();
+		sig.setLine(1, (String)this.gateOutputs.get(0));
+		sig.update();
+		
 	}
 }

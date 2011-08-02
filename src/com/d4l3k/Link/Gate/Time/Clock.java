@@ -19,7 +19,7 @@ public class Clock extends BaseGate{
 	}
 	public Clock() {
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		if(((Double)this.getInput(2, 0.0))>=1.0)
 		{

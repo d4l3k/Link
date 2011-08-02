@@ -1,5 +1,6 @@
 package com.d4l3k.Link;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.Gate.IO.*;
@@ -11,98 +12,98 @@ import com.d4l3k.Link.Gate.Time.*;
 
 public class GateConfig {
 	//Handles executing gates.
-	public static void executeBaseGate(BaseGate gate) 
+	public static void executeBaseGate(BaseGate gate, int input, Object oldval, Object newval) 
 	{
 		String ID = gate.gateID;
 		if(ID.equalsIgnoreCase("[Constant]"))
-			((ConstantValue)gate).Execute();
+			((ConstantValue)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Display]"))
-			((Display)gate).Execute();
+			((Display)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Toggle]"))
-			((Toggle)gate).Execute();
+			((Toggle)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[RedstoneIn]"))
-			((RedstoneIn)gate).Execute();
+			((RedstoneIn)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[RedstoneOut]"))
-			((RedstoneOut)gate).Execute();
+			((RedstoneOut)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[StringEqual]"))
-			((StringEqual)gate).Execute();
+			((StringEqual)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[StringAdd]"))
-			((StringAdd)gate).Execute();
+			((StringAdd)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Equal]"))
-			((DoubleEqual)gate).Execute();
+			((DoubleEqual)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Add]"))
-			((DoubleAdd)gate).Execute();
+			((DoubleAdd)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Divide]"))
-			((DoubleDivide)gate).Execute();
+			((DoubleDivide)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Greater]"))
-			((DoubleGreater)gate).Execute();
+			((DoubleGreater)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[GreaterEqual]"))
-			((DoubleGreaterEqual)gate).Execute();
+			((DoubleGreaterEqual)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Less]"))
-			((DoubleLess)gate).Execute();
+			((DoubleLess)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[LessEqual]"))
-			((DoubleLessEqual)gate).Execute();
+			((DoubleLessEqual)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Multiply]"))
-			((DoubleMultiply)gate).Execute();
+			((DoubleMultiply)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Subtract]"))
-			((DoubleSubtract)gate).Execute();
+			((DoubleSubtract)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[ToString]"))
-			((DoubleToString)gate).Execute();
+			((DoubleToString)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Pos]"))
-			((Position)gate).Execute();
+			((Position)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[PlayerPos]"))
-			((PlayerPosition)gate).Execute();
+			((PlayerPosition)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[PlayerDetect]"))
-			((PlayerDetect)gate).Execute();
+			((PlayerDetect)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Teleport]"))
-			((Teleport)gate).Execute();
+			((Teleport)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[LocMake]"))
-			((LocationMake)gate).Execute();
+			((LocationMake)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[LocSplit]"))
-			((LocationSplit)gate).Execute();
+			((LocationSplit)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Command]"))
-			((Command)gate).Execute();
+			((Command)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[IfString]"))
-			((IfString)gate).Execute();
+			((IfString)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Inverse]"))
-			((DoubleInverse)gate).Execute();
+			((DoubleInverse)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[StringToggle]"))
-			((DoubleInverse)gate).Execute();
+			((DoubleInverse)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[LocAdd]"))
-			((LocationAdd)gate).Execute();
+			((LocationAdd)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[LocSubtract]"))
-			((LocationSubtract)gate).Execute();
+			((LocationSubtract)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[MobSpawn]"))
-			((MobSpawn)gate).Execute();
+			((MobSpawn)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Button]"))
-			((Button)gate).Execute();
+			((Button)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Clock]"))
-			((Clock)gate).Execute();
+			((Clock)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Counter]"))
-			((Counter)gate).Execute();
+			((Counter)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Latch]"))
-			((Latch)gate).Execute();
+			((Latch)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[GetTime]"))
-			((GetTime)gate).Execute();
+			((GetTime)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[SetTime]"))
-			((SetTime)gate).Execute();
+			((SetTime)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[All]"))
-			((DoubleAll)gate).Execute();
+			((DoubleAll)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Any]"))
-			((DoubleAny)gate).Execute();
+			((DoubleAny)gate).Execute(input,oldval,newval);
 		else if(ID.equalsIgnoreCase("[Turret]"))
-			((Turret)gate).Execute();
+			((Turret)gate).Execute(input,oldval,newval);
 	}
 	// Gates that execute on click.
-	public static void interactBaseGate(BaseGate gate)
+	public static void interactBaseGate(BaseGate gate, Player player)
 	{
 		String ID = gate.gateID;
 		if(ID.equalsIgnoreCase("[Toggle]"))
-			((Toggle)gate).Execute();
+			((Toggle)gate).Click(player);
 		else if(ID.equalsIgnoreCase("[StringToggle]"))
-			((StringToggle)gate).Execute();
+			((StringToggle)gate).Click(player);
 		else if(ID.equalsIgnoreCase("[Button]"))
-			((Button)gate).Execute();
+			((Button)gate).Click(player);
 	}
 	// Handles creating new gates. You can add aliases here. Just add a ||type.equalsIgnoreCase("[<alias>]").
 	public static BaseGate newBaseGate(String type, SignChangeEvent event)
@@ -142,11 +143,11 @@ public class GateConfig {
 			obj =  new DoubleSubtract(event);
 		else if(type.equalsIgnoreCase("[ToString]"))
 			obj =  new DoubleToString(event);
-		else if(type.equalsIgnoreCase("[Pos]"))
+		else if(type.equalsIgnoreCase("[Pos]")||type.equalsIgnoreCase("[Loc]"))
 			obj =  new Position(event);
-		else if(type.equalsIgnoreCase("[PlayerPos]"))
+		else if(type.equalsIgnoreCase("[PlayerPos]")||type.equalsIgnoreCase("[PPos]"))
 			obj =  new PlayerPosition(event);
-		else if(type.equalsIgnoreCase("[PlayerDetect]"))
+		else if(type.equalsIgnoreCase("[PlayerDetect]")||type.equalsIgnoreCase("[PDetect]"))
 			obj =  new PlayerDetect(event);
 		else if(type.equalsIgnoreCase("[Teleport]"))
 			obj =  new Teleport(event);
@@ -189,7 +190,7 @@ public class GateConfig {
 		
 		return obj;
 	}
-	// Handles creating new gates without initializing them
+	// Handles creating new gates without initializing them, for serialization
 	public static BaseGate newBaseGate(String type)
 	{
 		BaseGate obj = null;

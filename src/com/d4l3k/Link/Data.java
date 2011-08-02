@@ -85,11 +85,11 @@ public class Data {
 			Material type = gate.gateBlock.getType();
 			if(type.equals(Material.SIGN_POST)||type.equals(Material.WALL_SIGN))
 			{
-				updateGate(gate);
+				allGates.add(gate);
 			}
 			else
 			{
-				Core.debug("StaleGate: "+gate.gateID);
+				Core.debug("StaleGate: "+gate.gateID + "("+gate.gateBlock.getLocation().toString()+")");
 			}
 		}
 	}
@@ -108,44 +108,25 @@ public class Data {
 			BaseGate gate = allGates.get(i);
 			if(gate.gateBlock.equals(block))
 			{
-				allGates.remove(gate);
+				allGates.set(i,gat);
 			}
 		}
-		allGates.add(gat);
 	}
 	public static void removeGate(BaseGate gate)
 	{
 		allGates.remove(gate);
 	}
 	
-	public static Object getInput(BaseGate gate, int index)
-	{
-		return getInput(gate,index,"");
-	}
+
 	public static Object getInput(BaseGate gate, int index, Object escape)
 	{
 		Block block = gate.gateInputs.get(index);
 		int Input = gate.gateInputIndexs.get(index);
 		
 		BaseGate gate1 = getBaseGate(block);
-		if(gate1.gateOutputs.size()>0)
+		if(gate1.gateOutputs.size()>Input)
 		{
 			return gate1.gateOutputs.get(Input);
-		}
-		return escape;
-	}
-	
-	public static Object getInput(Block block, int Input)
-	{
-		return getInput(block,Input,"");
-	}
-
-	public static Object getInput(Block block, int Input, Object escape)
-	{
-		BaseGate gate = getBaseGate(block);
-		if(gate.gateOutputs.size()>0)
-		{
-			return gate.gateOutputs.get(Input);
 		}
 		return escape;
 	}
@@ -163,7 +144,7 @@ public class Data {
 		return new BaseGate();
 	}
 	
-	public static void updateInput(Block block, int Input)
+	public static void updateInput(Block block, int Input, Object oldobj, Object obj)
 	{
 		for(int i=0;i<allGates.size();i++)
 		{
@@ -172,7 +153,7 @@ public class Data {
 			{
 				if(block.equals(gate.gateInputs.get(r))&&Input==gate.gateInputIndexs.get(r))
 				{
-					GateConfig.executeBaseGate(gate);
+					GateConfig.executeBaseGate(gate, Input, oldobj, obj);
 				}
 			}
 		}
@@ -185,7 +166,7 @@ public class Data {
 			BaseGate gate = allGates.get(i);
 			if(gate.gateSelfTriggered)
 			{
-				GateConfig.executeBaseGate(gate);
+				GateConfig.executeBaseGate(gate, -1, 0, 1);
 			}
 		}
 	}

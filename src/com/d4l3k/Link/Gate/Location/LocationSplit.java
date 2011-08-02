@@ -21,9 +21,9 @@ public class LocationSplit extends BaseGate{
 	public LocationSplit() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
-		Location loc = ((GateLocation)this.getInput(0, new GateLocation(gateBlock.getWorld()))).getLocation();
+		Location loc = (Location)this.getInput(0, new GateLocation(gateBlock.getWorld()));
 		this.setOutput(0, loc.getX());
 		this.setOutput(1, loc.getY());
 		this.setOutput(2, loc.getZ());

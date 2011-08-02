@@ -19,7 +19,7 @@ public class StringEqual extends BaseGate{
 	public StringEqual() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		double data = 0.0;
 		if(this.getInput(0, "").equals(this.getInput(1, "")))

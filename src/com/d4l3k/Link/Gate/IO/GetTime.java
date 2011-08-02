@@ -19,9 +19,9 @@ public class GetTime extends BaseGate{
 	public GetTime() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
-		if((Double)Data.getInput(this, 0)<1.0)
+		if((Double)this.getInput(1, 0.0)<1.0)
 			return;
 		
 		CraftSign sig = new CraftSign(this.gateBlock);

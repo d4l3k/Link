@@ -17,7 +17,7 @@ public class Display extends BaseGate{
 	public Display() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		CraftSign sig = new CraftSign(this.gateBlock);
 		String msg = (String)this.getInput(1, "");

@@ -30,7 +30,7 @@ public class ConstantValue extends BaseGate{
 	public ConstantValue() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		
 	}

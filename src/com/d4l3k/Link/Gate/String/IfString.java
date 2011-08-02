@@ -18,7 +18,7 @@ public class IfString extends BaseGate{
 	public IfString() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		String output = "";
 		if(((Double)this.getInput(0, 0.0))>=1.0)

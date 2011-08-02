@@ -143,7 +143,8 @@ public class InteractListener extends PlayerListener {
 						firstGate.gateInputs.set(firstSelection, Data.playerEditSecondGate.get(plr));
 						firstGate.gateInputIndexs.set(firstSelection, secondSelection);
 						Data.updateGate(firstGate);
-						Data.updateInput(secondGate.gateBlock, secondSelection);
+						Object val = secondGate.gateOutputs.get(secondSelection);
+						Data.updateInput(secondGate.gateBlock, secondSelection, val, val);
 						CraftSign sig = new CraftSign(secondGate.gateBlock);
 						sig.setLine(2, "");
 						sig.setLine(3, "");
@@ -162,7 +163,7 @@ public class InteractListener extends PlayerListener {
 			if(mat.equals(Material.SIGN_POST)||mat.equals(Material.WALL_SIGN))
 			{
 				BaseGate gate = Data.getBaseGate(block);
-				GateConfig.interactBaseGate(gate);
+				GateConfig.interactBaseGate(gate, plr);
 			}
 		}
 	}

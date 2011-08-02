@@ -7,7 +7,6 @@ import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
 import com.d4l3k.Link.Core;
-import com.d4l3k.Link.GateLocation;
 
 public class PlayerPosition extends BaseGate{
 	public PlayerPosition(SignChangeEvent event)
@@ -22,13 +21,12 @@ public class PlayerPosition extends BaseGate{
 	public PlayerPosition() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		Location pos = gateBlock.getLocation();
 		String plr = (String)this.getInput(0, "");
 		pos = getPlayer(plr).getLocation();
-		GateLocation gPos = new GateLocation(pos);
-		this.setOutput(0, gPos);
+		this.setOutput(0, pos);
 		CraftSign sig = new CraftSign(this.gateBlock);
 		sig.setLine(1, "T: "+gateBlock.getWorld().getName());
 		sig.update();

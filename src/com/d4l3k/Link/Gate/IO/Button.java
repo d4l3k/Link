@@ -1,6 +1,7 @@
 package com.d4l3k.Link.Gate.IO;
 
 import org.bukkit.craftbukkit.block.CraftSign;
+import org.bukkit.entity.Player;
 import org.bukkit.event.block.SignChangeEvent;
 
 import com.d4l3k.Link.BaseGate;
@@ -12,7 +13,6 @@ public class Button extends BaseGate{
 		this.gateName = "Value Button";
 		this.gateID = "[Button]";
 		this.addOutput("Pressed", "double");
-		
 		this.gateStrData = event.getLine(1)+event.getLine(2)+event.getLine(3);
 		double tog = 0.0;
 		String[] parse = this.gateStrData.split(",");
@@ -31,8 +31,7 @@ public class Button extends BaseGate{
 	public Button() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
-	{
+	public void Click(Player player) {
 		CraftSign sig = new CraftSign(this.gateBlock);
 		String[] parse = this.gateStrData.split(",");
 		
@@ -55,5 +54,6 @@ public class Button extends BaseGate{
 		catch(Exception ex){}
 		this.setOutput(0, tog);
 		sig.update();
+		
 	}
 }

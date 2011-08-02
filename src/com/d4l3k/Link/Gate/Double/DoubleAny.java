@@ -26,7 +26,7 @@ public class DoubleAny extends BaseGate{
 	public DoubleAny() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		double data = 0.0;
 		for(int i=0;i<8;i++)

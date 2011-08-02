@@ -19,7 +19,7 @@ public class DoubleEqual extends BaseGate{
 	public DoubleEqual() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		double data = 0.0;
 		if(this.getInput(0, 0.0).equals(this.getInput(1, 0.0)))

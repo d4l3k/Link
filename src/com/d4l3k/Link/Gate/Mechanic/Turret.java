@@ -23,11 +23,11 @@ public class Turret extends BaseGate{
 	public Turret() {
 		// Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		if((Double)this.getInput(1, 0.0)>=1.0)
 		{
-			Location loc = ((GateLocation)Data.getInput(this,0, new GateLocation(gateBlock.getWorld()))).getLocation();
+			Location loc = (Location)this.getInput(0, gateBlock.getLocation());
 			Vector offset = loc.toVector().subtract(gateBlock.getLocation().toVector());
 			Vector vel = offset.normalize();
 			double speed = (Double)this.getInput(2, 0.6);

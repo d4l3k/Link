@@ -3,7 +3,7 @@ package com.d4l3k.Link;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SaveGate implements Serializable{
+public class SaveGate implements Serializable {
 	
 	
 	

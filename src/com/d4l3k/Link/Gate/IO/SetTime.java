@@ -20,7 +20,7 @@ public class SetTime extends BaseGate{
 	public SetTime() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		if((Double)Data.getInput(this, 1, 0.0)>=1.0)
 		{

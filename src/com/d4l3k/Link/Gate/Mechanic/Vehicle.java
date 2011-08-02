@@ -10,24 +10,20 @@ import org.bukkit.event.block.SignChangeEvent;
 import com.d4l3k.Link.BaseGate;
 import com.d4l3k.Link.Core;
 
-public class PlayerDetect extends BaseGate{
-	public PlayerDetect(SignChangeEvent event)
+public class Vehicle extends BaseGate{
+	public Vehicle(SignChangeEvent event)
 	{
 		super(event);
-		this.gateName = "Player Detect";
-		this.gateID = "[PlayerDetect]";
+		this.gateName = "Vehicle Controller";
+		this.gateID = "[Vehicle]";
 		this.addOutput("Player", "string");
-		this.addOutput("Location", "location");
-		this.addOutput("NumDetected", "double");
-
 		this.addInput("Update", "double");
 		this.addInput("Distance", "double");
-		this.addInput("Next", "double");
 	}
-	public PlayerDetect() {
+	public Vehicle() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute(int input, Object oldval, Object newval)
+	public void Execute()
 	{
 		double Dist = (Double)this.getInput(1, 5.0);
 		ArrayList<Player> player = new ArrayList<Player>();
@@ -48,24 +44,12 @@ public class PlayerDetect extends BaseGate{
 			}
 			
 		}
-		if(((Double)this.getInput(2, 0.0))>=1.0)
-		{
-			this.gateDouData++;
-		}
 		String selectPlayer = "";
-		Location loc = new Location(gateBlock.getWorld(),0,0,0);
-		if(gateDouData>=player.size())
-		{
-			gateDouData = 0.0;
-		}
 		if(player.size()>=1)
 		{
-			selectPlayer = player.get((int)gateDouData).getName();
-			loc = player.get((int)gateDouData).getLocation();
+			selectPlayer = player.get(0).getName();
 		}
 		this.setOutput(0, selectPlayer);
-		this.setOutput(1, loc);
-		this.setOutput(2, player.size());
 		CraftSign sig = new CraftSign(this.gateBlock);
 		sig.setLine(1, "T: "+selectPlayer);
 		sig.update();

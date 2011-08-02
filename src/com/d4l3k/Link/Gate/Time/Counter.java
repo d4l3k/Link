@@ -17,7 +17,7 @@ public class Counter extends BaseGate{
 	}
 	public Counter() {
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		if(((Double)this.getInput(1, 0.0))>=1.0)
 		{

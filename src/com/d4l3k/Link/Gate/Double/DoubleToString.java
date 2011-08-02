@@ -17,7 +17,7 @@ public class DoubleToString extends BaseGate{
 	public DoubleToString() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		String data = Double.toString((Double)this.getInput(0, 0.0));
 		this.setOutput(0, data);

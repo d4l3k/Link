@@ -16,7 +16,7 @@ public class Latch extends BaseGate{
 	}
 	public Latch() {
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		if(((Double)this.getInput(0, 0.0))>=1.0)
 		{

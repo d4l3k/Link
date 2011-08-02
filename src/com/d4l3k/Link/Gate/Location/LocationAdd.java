@@ -22,12 +22,12 @@ public class LocationAdd extends BaseGate{
 	public LocationAdd() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		GateLocation pos = new GateLocation(gateBlock.getWorld());
 		
-		Location loc1 = ((GateLocation)this.getInput(0, pos)).getLocation();
-		Location loc2 = ((GateLocation)this.getInput(1, pos)).getLocation();
+		Location loc1 = (Location)this.getInput(0, pos);
+		Location loc2 = (Location)this.getInput(1, pos);
 		loc1.add(loc2);
 		
 		this.setOutput(0, loc1);

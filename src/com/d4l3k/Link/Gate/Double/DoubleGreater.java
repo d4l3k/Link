@@ -20,7 +20,7 @@ public class DoubleGreater extends BaseGate{
 	public DoubleGreater() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		double data = 0.0;
 		if((Double)Data.getInput(this, 0, 0.0)>(Double)Data.getInput(this, 1, 0.0))

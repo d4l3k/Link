@@ -24,7 +24,7 @@ public class StringAdd extends BaseGate{
 	public StringAdd() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		String data = (String)this.getInput(0,"");
 		for(int i=1;i<8;i++)

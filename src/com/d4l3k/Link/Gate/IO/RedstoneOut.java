@@ -29,7 +29,7 @@ public class RedstoneOut extends BaseGate{
 	public RedstoneOut() {
 		// TODO Auto-generated constructor stub
 	}
-	public void Execute()
+	public void Execute(int input, Object oldval, Object newval)
 	{
 		CraftSign sign = new CraftSign(gateBlock);
 		Location leverLoc = gateBlock.getLocation();
